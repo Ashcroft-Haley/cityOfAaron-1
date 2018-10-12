@@ -8,6 +8,12 @@ import model.Game;
 import model.Map;
 import model.Player;
 import model.Storehouse;
+import model.Author;
+import model.Animal;
+import model.InventoryItem;
+import model.Provision;
+import model.ItemType;
+import model.Condition;
 
 /**
  *
@@ -29,7 +35,31 @@ public class CityOfAaron {
         theGame.setAcresOwned(2000);
         theGame.setWheatInStorage(15000);
         
+        Author theNames = new Author();
+        Author theTitles = new Author();
+        
+        theNames.setName(new String[] {
+            "Haley Ashcroft", "Tyler Tucker", "Macen Stuesher"
+        });
+        
+        theTitles.setTitle(new String[] {
+            "Student", "Student", "Student"
+        });
+     
+        
         System.out.println(theGame.toString());
+        System.out.println(theNames.toString());
+        System.out.println(theTitles.toString());
+        //System.out.println(theItemTypes.toString());
+        
+        for (ItemType items : ItemType.values()) {
+            System.out.println(items);
+        } 
+        
+        for (Condition conditions : Condition.values()) {
+            System.out.println(conditions);
+        } 
+      
     }
     
 }
