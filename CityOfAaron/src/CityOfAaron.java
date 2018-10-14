@@ -9,6 +9,8 @@ import model.Game;
 import model.Map;
 import model.Player;
 import model.Storehouse;
+import model.Point;
+import model.Location;
 import model.Author;
 import model.Animal;
 import model.InventoryItem;
@@ -77,7 +79,23 @@ public class CityOfAaron {
         
         
         
+        Location aLocation = new Location();
+        aLocation.setDescritptionOfLocation("That sure is a location!");
+        aLocation.setNameOfLocation("Le City de Aaaron");
+        aLocation.setSymbolOfLocation("L");
+        aLocation.setTipsForLocation("Watch out!  It looks out of place.");
+                
+        Point aPoint = new Point();
+        aPoint.setTheColumn(413);
+        aPoint.setTheRow(612);
         
+        Player myName = new Player();
+        myName.setName("Steve?");
+        
+   
+        System.out.println(aLocation.toString());    
+        System.out.println(aPoint.toString());
+        System.out.println(myName.getName());
         
      
         
