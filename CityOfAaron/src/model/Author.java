@@ -19,24 +19,24 @@ public class Author implements Serializable {
     }
     
     
-    private String[] name;
-    private String[] title;
+    private String name;
+    private String title;
     
     
     
-    public String[] getName() {
+    public String getName() {
         return name;
     }
     
-    public void setName(String[] name) {
+    public void setName(String name) {
         this.name = name;
     }
     
-    public String[] getTitle() {
+    public String getTitle() {
         return title;
     }
     
-    public void setTitle(String[] title) {
+    public void setTitle(String title) {
         this.title = title;
     }
     
@@ -53,8 +53,8 @@ public class Author implements Serializable {
     @Override
     public String toString() {
         return "Author{" 
-                + "name=" + Arrays.toString(name) 
-                + ", title=" + Arrays.toString(title) 
+                + "name=" + name 
+                + ", title=" + title 
                 + '}';
     }
     

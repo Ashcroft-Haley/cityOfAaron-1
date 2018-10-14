@@ -10,18 +10,7 @@ package model;
  * @author haleyashcroft
  */
 public enum Condition {
-    GOOD("Good"),
-    FAIR("Fair"),
-    POOR("Poor");
-    
-    private final String textRepresentation;
-    
-    private Condition(String textRepresentation) {
-        this.textRepresentation = textRepresentation;
-    }
-    
-    
-    @Override public String toString() {
-        return textRepresentation;
-    }
+    GOOD,
+    FAIR,
+    POOR;
 }

@@ -10,9 +10,9 @@ package model;
  * @author haleyashcroft
  */
 public enum ItemType {
-    Animals,
-    Tools,
-    Provisions;
+        Animal,
+        Tool,
+        Provision;
     
 }
 
