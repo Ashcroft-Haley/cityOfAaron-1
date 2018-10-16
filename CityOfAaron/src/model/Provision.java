@@ -5,19 +5,50 @@
  */
 package model;
 
+import java.io.Serializable;
+import java.util.Arrays;
+
 /**
  *
- * @author haleyashcroft
+ * @author tylertucker
  */
-public class Provision {
+public class Provision implements Serializable {
     
     public Provision() {
         //empty constructor for JavaBeans
     }
     
+    private String name;
+    private boolean perishable;
+    
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public boolean isPerishable() {
+        return perishable;
+    }
+
+    public void setPerishable(boolean perishable) {
+        this.perishable = perishable;
+    }
+    
+    //    @Override
+//    public String toString() {
+//        return "Provisions class coming soon!";
+//    }
+    
     @Override
     public String toString() {
-        return "Provisions class coming soon!";
+        return "Player{" 
+                + "name=" + name 
+                + "perishable=" + perishable
+                + '}';
     }
+
     
 }
