@@ -68,23 +68,20 @@ public class CityOfAaron {
         });
         
         
-        Game theGame = new Game();
-        theGame.setThePlayer(new Player());
-        theGame.setTheMap(new Map());
-        theGame.setTheStorehouse(theStorehouse);
-        theGame.setCurrentPopulation(105);
-        theGame.setAcresOwned(2000);
-        theGame.setWheatInStorage(15000);
+        Location theLocation = new Location();
+        theLocation.setGameTips(new String[] {
+            "Tip 1", "Tip 2", "Tip 3"
+        });
+        theLocation.setName(new String(
+                "Treasury"
+        ));
+        theLocation.setDescription(new String(
+                "Full of all the riches and wealth of the city of Aaron!"
+        ));
+        theLocation.setMapSymbol(new String(
+                "@"
+        ));
         
-        
-        
-        
-        Location aLocation = new Location();
-        aLocation.setDescritptionOfLocation("That sure is a location!");
-        aLocation.setNameOfLocation("Le City de Aaaron");
-        aLocation.setSymbolOfLocation("L");
-        aLocation.setTipsForLocation("Watch out!  It looks out of place.");
-                
         Point aPoint = new Point();
         aPoint.setTheColumn(413);
         aPoint.setTheRow(612);
@@ -92,8 +89,33 @@ public class CityOfAaron {
         Player myName = new Player();
         myName.setName("Steve?");
         
+        Map theMap = new Map();
+        theMap.setCurrentLocation(aPoint);
+        
+        
+        
+        
+        Game theGame = new Game();
+        theGame.setThePlayer(myName);
+        theGame.setTheMap(theMap);
+        theGame.setTheStorehouse(theStorehouse);
+        theGame.setCurrentPopulation(105);
+        theGame.setAcresOwned(2000);
+        theGame.setWheatInStorage(15000);
+        
+        
+        
+        //Location aLocation = new Location();
+        //aLocation.setDescritptionOfLocation("That sure is a location!");
+        //aLocation.setNameOfLocation("Le City de Aaaron");
+        //aLocation.setSymbolOfLocation("L");
+        //aLocation.setTipsForLocation("Watch out!  It looks out of place.");
+                
+        
+        
    
-        System.out.println(aLocation.toString());    
+        //System.out.println(aLocation.toString()); 
+        System.out.println(theLocation.toString());
         System.out.println(aPoint.toString());
         System.out.println(myName.getName());
         

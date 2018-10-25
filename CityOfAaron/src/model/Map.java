@@ -18,37 +18,38 @@ public class Map implements Serializable {
         //empty constructor for Javabeans
     }
     
-    private Location[] locations;
+    private Location[][] locations = new Location[5][5];
+    private Point currentLocation;
 
-    public Location[] getLocations() {
+    public Location[][] getLocations() {
         return locations;
     }
 
-    public void setLocations(Location[] locations) {
+    public void setLocations(Location[][] locations) {
         this.locations = locations;
     }
 
-    public Point[] getCurrentlocation() {
-        return currentlocation;
+    public Point getCurrentLocation() {
+        return currentLocation;
     }
 
-    public void setCurrentlocation(Point[] currentlocation) {
-        this.currentlocation = currentlocation;
+    public void setCurrentLocation(Point currentlocation) {
+        this.currentLocation = currentLocation;
     }
-    private Point[] currentlocation;
     
 //    @Override
 //    public String toString() {
 //        return "Map class coming soon!";
 //    }
-    
+
     @Override
     public String toString() {
-        return "Map{" 
-                + "locations=" + Arrays.toString(locations) 
-                + ", point=" + Arrays.toString(currentlocation)
+        return "Map{" + "locations=" + Arrays.toString(locations) 
+                + ", currentLocation=" + currentLocation 
                 + '}';
     }
+    
+    
     
     
 }

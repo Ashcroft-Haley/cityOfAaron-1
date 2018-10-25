@@ -6,6 +6,7 @@
 
 package model;
 
+import java.util.Arrays;
 import java.io.Serializable;
 
 /**
@@ -18,43 +19,54 @@ public class Location implements Serializable {
         //Here's that empty constructor
     }
     
-    private String nameOfLocation;
-    private String descritptionOfLocation;
-    private String symbolOfLocation;
-    private String tipsForLocation;
+    private String name;
+    private String description;
+    private String mapSymbol;
+    private String[] gameTips;
     
     
-    public String getNameOfLocation() {
-        return nameOfLocation;
+    public String getName() {
+        return name;
     }
     
-    public String getDescriptionOfLocation() {
-        return descritptionOfLocation;
+    public void setName(String name) {
+        this.name = name;
     }
     
-    public String getSymbolOfLocation() {
-        return symbolOfLocation;
+    public String getDescription() {
+        return description;
     }
     
-    public String getTipsForLocation() {
-        return tipsForLocation;
+    public void setDescription(String description) {
+        this.description = description;
     }
     
+    public String getMapSymbol() {
+        return mapSymbol;
+    }
+    
+    public void setMapSymbol(String mapSymbol) {
+        this.mapSymbol = mapSymbol;
+    }
+    
+    public String[] getGameTips() {
+        return gameTips;
+    }
+    
+    public void setGameTips(String[] gameTips) {
+        this.gameTips = gameTips;
+    }
+
     @Override
     public String toString() {
-        return "Location{"
-                + "nameOfLocation= " + nameOfLocation
-                + ", descriptionOfLocation= " + descritptionOfLocation
-                + ", symbolOfLocation= " + symbolOfLocation
-                + ", tipsForLocation= " + tipsForLocation
+        return "Location{" + "name=" + name 
+                + ", description=" + description 
+                + ", mapSymbol=" + mapSymbol 
+                + ", gameTips=" + Arrays.toString(gameTips) 
                 + '}';
     }
+    
+   
                         
-        
-              
-    
-    
-    
-    
-    
+           
 }
