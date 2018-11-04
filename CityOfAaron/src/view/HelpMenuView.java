@@ -6,17 +6,14 @@
 package view;
 
 import java.util.Scanner;
-import cityofaaron.CityOfAaron;
-import model.Player;
-import model.Game;
-import java.util.Scanner;
 
 /**
  *
  * @author haleyashcroft
  */
-public class NewGameView {
+public class HelpMenuView {
     
+        
     
     /**
      * The message that will be displayed by this view.
@@ -26,9 +23,25 @@ public class NewGameView {
     /**
      * Constructor
      */
-    public NewGameView(){
+    public HelpMenuView(){
         
-        message = "Starting a new game...\n";
+        message = "Welcome to the Help Menu View.\n\n"
+                + "WHAT ARE THE GOALS OF THE GAME?\n"
+                + "You will assume the role of the leader over the city of Aaron,\n"
+                + "and your job is to survive each year for ten years. You are to\n"
+                + "manage the villageswheat crops so that the village can be adaquately\n"
+                + "fed while dealing with rats and random crop yields. The city is\n"
+                + "The city is blessed when the people pay tithes and offerings.\n"
+                + "If too many people die during your term you will be removes from\n"
+                + "office and the game ends.\n"
+                + "WHERE IS THE CITY OF AARON\n"
+                + "The city of Aaron is a Book of Mormon city located somwhere on the\n"
+                + "American continent around 200 years before Christ's birth.\n"
+                + "HOW DO I MOVE TO ANOTHER LOCATION?\n"
+                + "(explanation here)\n"
+                + "HOW DO I DISPLAY A LIST OF ANIMALS, PROVISIONS, AND TOOLS IN THE STOREHOUSE?\n"
+                + "(explanation here)\n\n"
+                + "B - Back to Main Menu";
                 
     }
     
@@ -87,7 +100,7 @@ public class NewGameView {
         // from the user.
         String[] inputs = new String[1];
         
-        inputs[0] = getUserInput("Please enter your name, or press Enter to return to the Main Menu", true);
+        inputs[0] = getUserInput("Press the 'B' key to return to the Main Manu.");
         
         // Repeat for each input you need, putting it into its proper slot in the array.
         // Create a function for this to call
@@ -104,15 +117,12 @@ public class NewGameView {
      */
     public boolean doAction(String[] inputs){
         
-        if (inputs[0] == null || inputs[0].equals("")) {
-            System.out.println("No player name entered. Returning to the Main Menu...");
-            return false;
+        switch (inputs[0].trim().toUpperCase()) {
+            case "B":
+                return false;
         }
         
-        String playerName = inputs[0];
-        createAndStartGame(playerName);
-        
-        return false;
+        return true;
     }
     
     
@@ -135,35 +145,9 @@ public class NewGameView {
     
     // Define your action handlers here. These are the methods that your doAction()
     // method will call based on the user's input. We don't want to do a lot of 
-    // complex game stuff in our doAction() method. It will get messy very quickly.
+//    // complex game stuff in our doAction() method. It will get messy very quickly.
     
     
-    private boolean createAndStartGame(String playerName){
-        // Eventually we will do this:
-        // Game game = GameControl.createNewGame(playerName);
-        //
-        // but for this week, we'll just do this:
-        
-        Player player = new Player();
-        player.setName(playerName);
-        
-        Game game = new Game();
-        game.setThePlayer(player);
-        
-        CityOfAaron.setCurrentGame(game);
-        
-        System.out.println();
-        System.out.println("Welcome to the game, " + CityOfAaron.getCurrentGame().getThePlayer().getName() + "!\n"
-                + "Next week we will have a GameView that you will see. But for now,\n"
-                + "we're just going to send you back to the Main Menu.\n");
-        
-        
-        //Once the GameMenuView is created we will call it here.
-        // GameMenuView gameMenu = new GameMenuView();
-        // gameMenu.displayView();
-        
-        return true;
-        
-    }
+
     
 }
