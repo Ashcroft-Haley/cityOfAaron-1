@@ -16,12 +16,8 @@ public class MainMenuView {
      protected String message;
 
     
-    private static NewGameView GameView = new NewGameView();
-    private static HelpMenuView HelpView = new HelpMenuView();
-    private void loadSavedGame(){
-        System.out.println("Huh, it seems like this feature has not"
-                        + "been implementated yet.");
-    }
+
+    
     
    public MainMenuView(){
        
@@ -100,9 +96,33 @@ public class MainMenuView {
         
         // return false if you want this view to exit and return
         // to the view that called it.
-        acceptableActionHandler(inputs);
+        //acceptableActionHandler(inputs);
+        
+                char input;
+         input = inputs[0].trim().charAt(0);
+        
+        switch (input){
+            case 1: GameView.displayView();
+                break;
+                
+            case 2: input = 2;
+                loadSavedGame();
+                break;
+                
+            case 3: HelpView.displayView();
+                break;
+                
+            case 4: input = 4;
+                System.out.println("Thanks for playing!");
+                return false;
+            default: System.out.println("Whoops!  It looks like that input is"
+                    + "invalid.  Look more closely at the menu and please"
+                    + "try again!");
+        }
         
         return true;
+        
+
     }
     
     
@@ -128,37 +148,13 @@ public class MainMenuView {
     // complex game stuff in our doAction() method. It will get messy very quickly.
     
     
-    private boolean acceptableActionHandler(String[] inputs){
-        // Define whatever code you need here to accomplish the action.
-        // You can make this a void method if you want. Whatever you need 
-        // here, you are free to do.
-        //
-        // Generally, though, this is where you will call into your Control
-        // classes to do the work of the application.
-        
-        
-        char input;
-         input = inputs[0].trim().charAt(0);
-        
-        switch (input){
-            case 1: GameView.displayView();
-                break;
-                
-            case 2: input = 2;
-                loadSavedGame();
-                break;
-                
-            case 3: HelpView.displayView();
-                break;
-                
-            case 4: input = 4;
-                System.out.println("Thanks for playing!");
-                return false;
-            default: System.out.println("Whoops!  It looks like that input is"
-                    + "invalid.  Look more closely at the menu and please"
-                    + "try again!");
-        }
-        
-        return true;
-    }
+
+
+
+    private static NewGameView GameView = new NewGameView();
+    private static HelpMenuView HelpView = new HelpMenuView();
+    private void loadSavedGame(){
+        System.out.println("Huh, it seems like this feature has not"
+                        + "been implementated yet.");
+}
 }
