@@ -23,11 +23,11 @@ public class MainMenuView {
        
        message = "WELCOME TO: MAIN MENU.\n"
                 + "Four paths lie in front of you.\n"
-               + "Which path do you choose to walk:\n"
-                + "1 - Start a New game!\n"
-                + "2 - Load a Saved Game.\n"
-                + "3 - Help!\n"
-                + "4 - Quit\n";
+                + "Which path do you choose to walk:\n"
+                + "N - Start a New game!\n"
+                + "L - Load a Saved Game.\n"
+                + "H - Help!\n"
+                + "Q - Quit\n";
    } 
    
 
@@ -72,7 +72,6 @@ public class MainMenuView {
         // Declare the array to have the number of elements you intend to get 
         // from the user.
         String[] inputs = new String[1];
-        
         inputs[0] = getUserInput("Please make your selection.");
         
         // Repeat for each input you need, putting it into its proper slot in the array.
@@ -97,27 +96,21 @@ public class MainMenuView {
         // return false if you want this view to exit and return
         // to the view that called it.
         //acceptableActionHandler(inputs);
+      
         
-                char input;
-         input = inputs[0].trim().charAt(0);
-        
-        switch (input){
-            case 1: GameView.displayView();
+        switch (inputs[0].trim().toUpperCase()){
+            case "N":
+                startNewGame();
                 break;
-                
-            case 2: input = 2;
+            case "L": 
                 loadSavedGame();
                 break;
-                
-            case 3: HelpView.displayView();
+            case "H": 
+                helpMenu();
                 break;
-                
-            case 4: input = 4;
-                System.out.println("Thanks for playing!");
+            case "Q":
+                System.out.println("Thank you for playing. Good-bye");
                 return false;
-            default: System.out.println("Whoops!  It looks like that input is"
-                    + "invalid.  Look more closely at the menu and please"
-                    + "try again!");
         }
         
         return true;
@@ -151,10 +144,18 @@ public class MainMenuView {
 
 
 
-    private static NewGameView GameView = new NewGameView();
-    private static HelpMenuView HelpView = new HelpMenuView();
-    private void loadSavedGame(){
-        System.out.println("Huh, it seems like this feature has not"
-                        + "been implementated yet.");
-}
+    private void startNewGame() {
+        NewGameView view = new NewGameView();
+        view.displayView();
+    }
+    
+    private void helpMenu() {
+        HelpMenuView view = new HelpMenuView();
+        view.displayView();
+    }
+    
+    private void loadSavedGame() {
+        System.out.println("*** loadSavedGame() called. Implementation coming soon.");
+    }
+    
 }
