@@ -107,7 +107,7 @@ public class StartProgramView {
         // to the view that called it.
         startMainMenuView();
         
-        return true;
+        return false;
     }
     
     
