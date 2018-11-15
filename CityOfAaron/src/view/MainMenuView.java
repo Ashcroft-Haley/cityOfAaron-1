@@ -5,69 +5,31 @@
  */
 package view;
 
-import java.util.Scanner;
-
 /**
  *
  * @author Stuehser
  */
-public class MainMenuView {
-    
-     protected String message;
-
+public class MainMenuView extends ViewBase {
     
 
-    
     
    public MainMenuView(){
        
-       message = "WELCOME TO: MAIN MENU.\n"
+   } 
+
+    @Override
+   protected String getMessage() {
+        return "WELCOME TO: MAIN MENU.\n"
                 + "Four paths lie in front of you.\n"
                 + "Which path do you choose to walk:\n"
                 + "N - Start a New game!\n"
                 + "L - Load a Saved Game.\n"
                 + "H - Help!\n"
                 + "Q - Quit\n";
-   } 
+    }
    
-
-
-
-
-    
-    
-    protected String getUserInput (String prompt, boolean allowEmpty){
-        
-        Scanner keyboard = new Scanner(System.in);
-        String input = "";
-        boolean inputRecieved = false;
-        
-        while(inputRecieved == false){
-            System.out.println(prompt);
-            input = keyboard.nextLine();
-            
-            
-            if(input == null){
-                input = "";
-            }
-            
-            input = input.trim();
-            
-            if (input.equals("") == false || allowEmpty == true){
-                inputRecieved = true;
-            
-                }
-            }
-            
-        return input;
-    }
-        
-    
-    
-    protected String getUserInput (String prompt){
-        return getUserInput(prompt, false);
-    }
-        public String[] getInputs() {
+   @Override
+    public String[] getInputs() {
         
         // Declare the array to have the number of elements you intend to get 
         // from the user.
@@ -87,6 +49,7 @@ public class MainMenuView {
      * @return true if the view should repeat itself, and false if the view
      * should exit and return to the previous view.
      */
+    @Override
     public boolean doAction(String[] inputs){
         // Act on the user's input.
         // This is a "dispatch" function that decides what
@@ -117,31 +80,11 @@ public class MainMenuView {
         
 
     }
-    
-    
-    /**
-     * Control this view's display/prompt/action loop until the user
-     * chooses and action that causes this view to close.
-     */
-    public void displayView(){
-        
-        boolean keepGoing = true;
-        
-        while(keepGoing == true){
-            
-            System.out.println(message);
-            String[] inputs = getInputs();
-            keepGoing = doAction(inputs);
-        }
-    }
-    
+
     
     // Define your action handlers here. These are the methods that your doAction()
     // method will call based on the user's input. We don't want to do a lot of 
     // complex game stuff in our doAction() method. It will get messy very quickly.
-    
-    
-
 
 
     private void startNewGame() {

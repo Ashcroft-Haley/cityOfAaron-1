@@ -29,8 +29,7 @@ public class HelpMenuView {
                 + "G - WHAT ARE THE GOALS OF THE GAME?\n"
                 + "W - WHERE IS THE CITY OF AARON\n"
                 + "M -HOW DO I MOVE TO ANOTHER LOCATION?\n"
-                + "S - HOW DO I DISPLAY A LIST OF ANIMALS, PROVISIONS, AND TOOLS IN THE STOREHOUSE?\n"
-                + "B - Back to Main Menu";
+                + "S - HOW DO I DISPLAY A LIST OF ANIMALS, PROVISIONS, AND TOOLS IN THE STOREHOUSE?\n";
                 
     }
     
@@ -144,9 +143,6 @@ public class HelpMenuView {
                 );
                 getInputs();
                 break;
-            case "B":
-                System.out.println("You are now leaving the Help Menu...");
-                return false;
         }
         
         return true;
