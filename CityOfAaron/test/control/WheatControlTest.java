@@ -58,4 +58,22 @@ public class WheatControlTest {
         assertEquals(-2, WheatControl.calculateLossToRats(-2, 1000), 0.0);
     }
     
+    @Test
+    public void testNoRats() {
+        FakeRandom fakeRandom = new FakeRandom();
+        GameControl.setRandomGenerator(fakeRandom);
+        fakeRandom.add(35);
+        fakeRandom.add(4);
+        assertEquals(0, WheatControl.calculateLossToRats(10, 1000), 0.0);
+    }
+    
+    @Test
+    public void testLossToRats() {
+        FakeRandom fakeRandom = new FakeRandom();
+        GameControl.setRandomGenerator(fakeRandom);
+        fakeRandom.add(20);
+        fakeRandom.add(4);
+        assertEquals(70, WheatControl.calculateLossToRats(10, 1000), 0.0);
+    }
+    
 }

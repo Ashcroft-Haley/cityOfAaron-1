@@ -8,6 +8,7 @@ package cityofaaron;
 
 import view.StartProgramView;
 import model.Game;
+import view.View;
 
 
 /**
@@ -31,7 +32,7 @@ public class CityOfAaron {
     
     public static void main(String[] args) {
         
-        StartProgramView startProgramView = new StartProgramView();
+        View startProgramView = new StartProgramView();
         startProgramView.displayView();
     }
 

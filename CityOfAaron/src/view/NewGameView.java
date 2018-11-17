@@ -91,15 +91,15 @@ public class NewGameView extends ViewBase {
         
         CityOfAaron.setCurrentGame(game);
         
-        System.out.println();
-        System.out.println("Welcome to the game, " + CityOfAaron.getCurrentGame().getThePlayer().getName() + "!\n"
-                + "Next week we will have a GameView that you will see. But for now,\n"
-                + "we're just going to send you back to the Main Menu.\n");
+        //System.out.println();
+        //System.out.println("Welcome to the game, " + CityOfAaron.getCurrentGame().getThePlayer().getName() + "!\n"
+        //        + "Next week we will have a GameView that you will see. But for now,\n"
+        //        + "we're just going to send you back to the Main Menu.\n");
         
         
         //Once the GameMenuView is created we will call it here.
-        // GameMenuView gameMenu = new GameMenuView();
-        // gameMenu.displayView();
+         GameMenuView gameMenu = new GameMenuView();
+         gameMenu.displayView();
         
         return true;
         

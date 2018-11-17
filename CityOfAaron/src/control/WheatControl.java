@@ -45,29 +45,19 @@ public class WheatControl {
         if (chanceOfRats >= 30) {
             return 0;
         };
-        
-        
-        
-        
+
         
         int low = 0;
         int high = 0;
         
         if (tithesPercent < 8) {
             low = 6;
-            high = 10;
-          
-            
-            
-            
-            
-            
+            high = 10;   
         };
         
         if (tithesPercent >= 8 && tithesPercent <= 12) {
             low = 3;
             high = 7;
-
         };
         
         if (tithesPercent > 12) {
@@ -86,6 +76,8 @@ public class WheatControl {
     }
     
     
-    
+    //public static int calculateHarvest(int tithesPercent, int wheatInStorage) {
+
+    //}
     
 }

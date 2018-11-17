@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package control;
+import model.Game;
+import model.AnnualReport;
 
 /**
  *
@@ -41,5 +43,40 @@ public class GameControl {
         return lowValue + randomGenerator.nextInt(range);
         
     }
+    
+//    public  static AnnualReport liveTheYear(
+//            Game game, int tithesPercent,
+//            int bushelsForFood, int acresToPlant
+//    ){
+//        if (game == null || tithesPercent < 0 || tithesPercent > 100 || bushelsForFood < 0 || acresToPlant < 0){
+//            return null;
+//        }
+//        
+//        AnnualReport report = new AnnualReport();
+//        report.setLandPrice(LandControl.getCurrentLandPrice());
+//        
+//        int totalWheat = game.getWheatInStorage();
+//        
+//        int harvested = WheatControl.calculateHarvest(tithesPercent, acresToPlant);
+//        int tithingAmount = (int)(double)((tithesPercent/100.0) * harvested);
+//        int lostToRats = WheatControl.calculateLossToRats(tithesPercent, totalWheat);
+//        
+//        int peopleStarved = PeopleControl.calculateMortality(bushelsForFood, game.getCurrentPopulation());
+//        int peopleMovedIn = PeopleControl.calculateNewMoveIns(game.getCurrentPopulation());
+//        
+//        totalWheat = totalWheat + harvested - tithingAmount - lostToRats;
+//        game.setWheatInStorage(totalWheat);
+//        game.setCurrentPopulation(game.getCurrentPopulation() - peopleStarved + peopleMovedIn);
+//        
+//        report.setBushelsHarvested(harvested);
+//        report.setTithingAmount(tithingAmount);
+//        report.setLostToRats(lostToRats);
+//        report.setPeopleStarved(peopleStarved);
+//        report.setPeopleMovedIn(peopleMovedIn);
+//        
+//        report.setEndingWheatInStorage(game.getWheatInStorage());
+//        report.setEndingPopulation(game.getCurrentPopulation());
+//        report.setEndingAcresOwned(game.getAcresOwned());
+//    }
     
 }
