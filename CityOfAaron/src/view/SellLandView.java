@@ -5,10 +5,79 @@
  */
 package view;
 
+import java.util.Scanner;
+import cityofaaron.CityOfAaron;
+import model.Game;
+import view.View;
+
 /**
  *
- * @author haleyashcroft
+ * @author Stuehser
  */
-public class SellLandView {
+public class SellLandView extends ViewBase {
+    
+    public SellLandView(){
+    
+    }
+   
+    
+    @Override
+    protected String getMessage() {
+        //Probably will throw in a scripture here as part of the intro
+        return "This chosen place sits\n"
+                + "Free of substance and meaning,\n"
+                + "Save for a haiku?\n";
+               
+    }
+    
+        @Override
+    public String[] getInputs() {
+        
+        // Declare the array to have the number of elements you intend to get 
+        // from the user.
+        String[] inputs = new String[1];
+        
+        inputs[0] = getUserInput(">: ", true);
+        
+        // Repeat for each input you need, putting it into its proper slot in the array.
+        // Create a function for this to call
+        
+        return inputs;
+    }
+    
+            
+    @Override
+    public boolean doAction(String[] inputs){
+       /* 
+        int Harvest;
+        
+     
+        Harvest = CityOfAaron.getCurrentGame().getWheatInStorage();
+        
+        
+        int intPut = Integer.parseInt(inputs[0]);
+        
+        if ((inputs[0] == null) || (inputs[0].equals(""))) {
+            System.out.println("That's not a valid input, please try harder.\n");
+            return true;
+        }        
+        
+        if(intPut > 100 || intPut < 0){
+            System.out.println("Please enter a valid percentage "
+                    + "BETWEEN 0% and 100%.\n");
+            return true;
+        }
+        else{
+            //This updates the wheat stored.
+            //SomeActionhandler();
+            }   
+        */
+        return false;
+    }
+    
+    private boolean FreeRealEstate(){
+    
+        return true;
+    }
     
 }
