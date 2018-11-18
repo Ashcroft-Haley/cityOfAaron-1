@@ -10,7 +10,7 @@ import view.View;
  *
  * @author Stuehser
  */
-public class FeedPeopleView extends ViewBase {
+public class FeedSomePeopleView extends ViewBase {
     
     
     /**
@@ -21,7 +21,7 @@ public class FeedPeopleView extends ViewBase {
     /**
      * Constructor
      */
-    public FeedPeopleView(){
+    public FeedSomePeopleView(){
         
     }
     

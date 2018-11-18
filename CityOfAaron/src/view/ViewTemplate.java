@@ -143,6 +143,12 @@ public class ViewTemplate {
         // Generally, though, this is where you will call into your Control
         // classes to do the work of the application.
         
+        
+        
         return true;
     }
+    
+    
+    
+    
 }

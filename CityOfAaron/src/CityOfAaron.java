@@ -45,7 +45,7 @@ public class CityOfAaron {
         
         Author theAuthor = new Author();
         theAuthor.setName(new String(
-                "Haley Ashcroft, Tyler Tucker, Macen Stuehser"
+                "Haley Ashcroft, Macen Stuehser"
         ));
         theAuthor.setTitle(new String(
                 "The City of Aaron"

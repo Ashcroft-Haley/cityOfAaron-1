@@ -93,6 +93,31 @@ public class ReportsMenuView extends ViewBase {
         return true;
     }
     
+    private boolean loadSellLandView()
+    {
+        View view = new SellLandView();
+        view.displayView();
+        return true;
+    }
+    
+    private boolean loadFeedSomePeopleView(){
+        View view = new FeedSomePeopleView();
+        view.displayView();
+        return true;
+    }
+    
+    private boolean loadPayTithingView(){
+        View view = new PayTithingView();
+        view.displayView();
+        return true;
+    }
+    
+    private boolean loadPlantCropsView(){
+        View view = new PlantCropsView();
+        view.displayView();
+        return true;
+    }
+    
     private boolean loadToolsInStorehouse() {
         System.out.println("Tools in Storehouse coming soon!");
         return true;
