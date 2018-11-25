@@ -15,13 +15,19 @@ public class Animal implements Serializable {
     //empty constructor for JavaBeans
     }
     
-    public Animal(String name, int age){
-        setName(name);
-        setAge(age);
-        
-    }    
+    private ItemType itemType;
+    private int quantity;
+    private Condition condition;
     private String name;
     private int age;
+    
+    public Animal(ItemType itemType, int quantity, Condition condition, String name, int age) {
+        this.itemType = itemType;
+        this.quantity = quantity;
+        this.condition = condition;
+        this.name = name;
+        this.age = age;
+    }
     
     public String getName() {
         return name;

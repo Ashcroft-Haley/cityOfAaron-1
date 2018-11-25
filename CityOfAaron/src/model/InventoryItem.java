@@ -18,29 +18,25 @@ public class InventoryItem implements Serializable {
         //empty constructor for JavaBeans
     }
     
-    public InventoryItem(String itemName, ItemType type, int quantity, 
-            Condition condition){
-        
-        setName(itemName);
-        setItemType(type);
-        setQuantity(quantity);
-        setCondition(condition);
-        
-        
-        
-    }
-    private String itemName;
     private ItemType itemType;
     private int quantity;
     private Condition condition;
+    private String name;
+    
+    public InventoryItem(ItemType itemType, int quantity, Condition condition, String name) {
+        this.itemType = itemType;
+        this.quantity = quantity;
+        this.condition = condition;
+        this.name = name;
+    }
     
     
     public String getName() {
-        return itemName;
+        return name;
     }
     
-    public void setName(String itemName) {
-        this.itemName = itemName;
+    public void setName(String name) {
+        this.name = name;
     }
     
     public ItemType getItemType() {

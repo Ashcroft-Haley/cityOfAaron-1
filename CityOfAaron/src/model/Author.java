@@ -21,7 +21,12 @@ public class Author implements Serializable {
     
     private String name;
     private String title;
-    
+
+    public Author(String name, String title) {
+        this.name = name;
+        this.title = title;
+    }
+        
     
     
     public String getName() {

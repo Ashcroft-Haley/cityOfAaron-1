@@ -18,14 +18,19 @@ public class Provision implements Serializable {
         //empty constructor for JavaBeans
     }
     
-    public Provision(String name, boolean perishable){
-        setName(name);
-        setPerishable(perishable);
-        
-    }
-    
     private String name;
     private boolean perishable;
+    private ItemType itemType;
+    private int quantity;
+    private Condition condition;
+    
+    public Provision(ItemType itemType, int quantity, Condition condition, String name, boolean perishable) {
+        this.itemType = itemType;
+        this.quantity = quantity;
+        this.condition = condition;
+        this.name = name;
+        this.perishable = perishable;
+    }
     
     public String getName() {
         return name;

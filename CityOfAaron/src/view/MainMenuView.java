@@ -98,7 +98,8 @@ public class MainMenuView extends ViewBase {
     }
     
     private void loadSavedGame() {
-        System.out.println("*** loadSavedGame() called. Implementation coming soon.");
+        View view = new LoadGameView();
+        view.displayView();
     }
     
 }

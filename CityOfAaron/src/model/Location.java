@@ -19,10 +19,18 @@ public class Location implements Serializable {
         //Here's that empty constructor
     }
     
+    
     private String name;
     private String description;
     private String mapSymbol;
     private String[] gameTips;
+    
+    public Location(String name, String description, String mapSymbol, String[] gameTips) {
+        setMapSymbol(mapSymbol);
+        setName(name);
+        setDescription(description);
+        setGameTips(gameTips);
+    }
     
     
     public String getName() {

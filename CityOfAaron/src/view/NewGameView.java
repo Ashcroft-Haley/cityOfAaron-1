@@ -10,6 +10,7 @@ import cityofaaron.CityOfAaron;
 import model.Player;
 import model.Game;
 import view.View;
+import control.GameControl;
 
 /**
  *
@@ -79,15 +80,7 @@ public class NewGameView extends ViewBase {
     
     private boolean createAndStartGame(String playerName){
         // Eventually we will do this:
-        // Game game = GameControl.createNewGame(playerName);
-        //
-        // but for this week, we'll just do this:
-        
-        Player player = new Player();
-        player.setName(playerName);
-        
-        Game game = new Game();
-        game.setThePlayer(player);
+        Game game = GameControl.createNewGame(playerName);
         
         CityOfAaron.setCurrentGame(game);
         

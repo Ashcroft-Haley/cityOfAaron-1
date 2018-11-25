@@ -16,9 +16,12 @@ public class Point {
     
     public Point(){
         //JavaBeans constructor, please do not think there is text here.
-        //You would be mistaken.
-        
-        
+        //You would be mistaken.  
+    }
+    
+    public Point(int row, int column){
+        this.row = row;
+        this.column = column;
     }
     
     private int row;
