@@ -6,6 +6,7 @@
 package model;
 
 import java.io.Serializable;
+//import model.ItemType;
 
 /**
  *
@@ -17,10 +18,30 @@ public class InventoryItem implements Serializable {
         //empty constructor for JavaBeans
     }
     
+    public InventoryItem(String itemName, ItemType type, int quantity, 
+            Condition condition){
+        
+        setName(itemName);
+        setItemType(type);
+        setQuantity(quantity);
+        setCondition(condition);
+        
+        
+        
+    }
+    private String itemName;
     private ItemType itemType;
     private int quantity;
     private Condition condition;
     
+    
+    public String getName() {
+        return itemName;
+    }
+    
+    public void setName(String itemName) {
+        this.itemName = itemName;
+    }
     
     public ItemType getItemType() {
         return itemType;

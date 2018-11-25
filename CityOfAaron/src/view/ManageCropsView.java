@@ -25,7 +25,7 @@ public class ManageCropsView extends ViewBase {
                 + "F - Feed the People\n"
                 + "P - Plant Crops\n"
                 + "T - Pay Tithes and Offerings\n"
-                + "R - Rack to Game Menu\n";
+                + "R - Back to Game Menu\n";
     }
    
    @Override

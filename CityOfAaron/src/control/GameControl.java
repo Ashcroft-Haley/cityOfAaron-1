@@ -6,6 +6,16 @@
 package control;
 import model.Game;
 import model.AnnualReport;
+import model.Player;
+import cityofaaron.CityOfAaron;
+import model.InventoryItem;
+import model.Animal;
+import model.Provision;
+import model.Storehouse;
+import java.util.ArrayList;
+import model.Condition;
+import model.ItemType;
+
 
 /**
  *
@@ -43,6 +53,63 @@ public class GameControl {
         return lowValue + randomGenerator.nextInt(range);
         
     }
+    
+    public static int createNewGame (Player Player){
+    
+        if(Player == null){
+            return -1;
+        }
+        
+        Game game = new Game();
+        game.setThePlayer(Player);
+        
+   
+        
+    
+        
+        
+        Storehouse storehouse = new Storehouse();
+        
+        cityofaaron.CityOfAaron.setCurrentGame(game);
+        
+        Provision[] provisions = {
+            new Provision("A Vegetable", true),
+            new Provision("Twinkies", false),
+            new Provision("Boar", true)
+        };
+        
+    
+        storehouse.setProvisions(provisions);
+        
+        Animal[] animal = {
+            
+            new Animal("Smokey", 57),
+            new Animal("Phill", 23),
+            new Animal("ShadowQuacks", 413)
+    
+    
+    
+    };
+        
+        storehouse.setAnimals(animal);
+ 
+        InventoryItem[] inventoryItem = {
+            new InventoryItem("Stick", ItemType.Tool, 2, Condition.POOR),
+            new InventoryItem("Hammer", ItemType.Tool, 7, Condition.FAIR),
+            new InventoryItem("MizziumPestle", ItemType.Tool, 413, Condition.GOOD),
+        };
+        game.setTheStorehouse(storehouse);
+        
+        return 1;
+        
+        
+        
+        
+    }
+
+    
+    
+    
     
 //    public  static AnnualReport liveTheYear(
 //            Game game, int tithesPercent,

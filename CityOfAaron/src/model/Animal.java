@@ -15,6 +15,11 @@ public class Animal implements Serializable {
     //empty constructor for JavaBeans
     }
     
+    public Animal(String name, int age){
+        setName(name);
+        setAge(age);
+        
+    }    
     private String name;
     private int age;
     
