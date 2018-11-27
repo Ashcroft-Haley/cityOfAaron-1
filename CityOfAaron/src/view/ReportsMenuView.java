@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package view;
+import control.AccountingControl;
 
 /**
  *
@@ -22,6 +23,7 @@ public class ReportsMenuView extends ViewBase {
         return "WELCOME TO: REPORTS MENU.\n"
                 + "A - View the animals in the storehouse\n"
                 + "T - View the tools in the storehouse\n"
+                + "M - View the tool you have the most of\n"
                 + "P - View the provisions in the storehouse\n"
                 + "Q - View Storehouse Quantity Totals\n"
                 + "AU - View the authors of this game\n"
@@ -70,6 +72,9 @@ public class ReportsMenuView extends ViewBase {
                 break;
             case "P": 
                 loadProvisionsInStorehouse();
+                break;
+            case "M":
+                AccountingControl.ToolMax();
                 break;
             case "AU": 
                 loadAuthors();
@@ -142,5 +147,8 @@ public class ReportsMenuView extends ViewBase {
         view.displayView();
         return true;
     }
+    
 
-}
+    }
+
+
