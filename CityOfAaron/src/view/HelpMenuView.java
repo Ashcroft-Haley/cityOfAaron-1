@@ -11,27 +11,22 @@ import java.util.Scanner;
  *
  * @author haleyashcroft
  */
-public class HelpMenuView {
+public class HelpMenuView extends ViewBase {
     
+    public HelpMenuView(){
         
+    }
     
     /**
      * The message that will be displayed by this view.
      */
-    protected String message;
-    
-    /**
-     * Constructor
-     */
-    public HelpMenuView(){
-        
-        message = "Welcome to the Help Menu View.\n\n"
+    protected String getMessage(){
+        return "Welcome to the Help Menu View.\n\n"
                 + "G - WHAT ARE THE GOALS OF THE GAME?\n"
                 + "W - WHERE IS THE CITY OF AARON\n"
                 + "M -HOW DO I MOVE TO ANOTHER LOCATION?\n"
                 + "S - HOW DO I DISPLAY A LIST OF ANIMALS, PROVISIONS, AND TOOLS IN THE STOREHOUSE?\n";
-                
-    }
+    };
     
     
     /**
@@ -146,23 +141,6 @@ public class HelpMenuView {
         }
         
         return true;
-    }
-    
-    
-    /**
-     * Control this view's display/prompt/action loop until the user
-     * chooses and action that causes this view to close.
-     */
-    public void displayView(){
-        
-        boolean keepGoing = true;
-        
-        while(keepGoing == true){
-            
-            System.out.println(message);
-            String[] inputs = getInputs();
-            keepGoing = doAction(inputs);
-        }
     }
     
     

@@ -23,6 +23,7 @@ public class ReportsMenuView extends ViewBase {
                 + "A - View the animals in the storehouse\n"
                 + "T - View the tools in the storehouse\n"
                 + "P - View the provisions in the storehouse\n"
+                + "Q - View Storehouse Quantity Totals\n"
                 + "AU - View the authors of this game\n"
                 + "B - Back to Game Menu\n";
     }
@@ -72,6 +73,9 @@ public class ReportsMenuView extends ViewBase {
                 break;
             case "AU": 
                 loadAuthors();
+                break;
+            case "Q": 
+                loadListTotalView();
                 break;
             case "B":
                 System.out.println("You are now leaving the Reports Menu...");
@@ -130,6 +134,12 @@ public class ReportsMenuView extends ViewBase {
     
     private boolean loadAuthors() {
         System.out.println("Created by Haley Ashcroft and Macen Steuhser");
+        return true;
+    }
+    
+    private boolean loadListTotalView(){
+        View view = new ListTotalView();
+        view.displayView();
         return true;
     }
 

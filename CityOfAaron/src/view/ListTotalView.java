@@ -4,28 +4,25 @@
  * and open the template in the editor.
  */
 package view;
+import control.StorehouseControl;
 
 /**
  *
- * @author Stuehser
+ * @author haleyashcroft
  */
-public class MainMenuView extends ViewBase {
-    
-
-    
-   public MainMenuView(){
+public class ListTotalView extends ViewBase {
+    public ListTotalView(){
        
    } 
 
     @Override
    protected String getMessage() {
-        return "WELCOME TO: MAIN MENU.\n"
-                + "Four paths lie in front of you.\n"
-                + "Which path do you choose to walk:\n"
-                + "N - Start a New game!\n"
-                + "L - Load a Saved Game.\n"
-                + "H - Help!\n"
-                + "Q - Quit\n";
+        return "QUANTITY TOTALS FOR STOREHOUSE ITEMS:\n"
+                + "Which type of storehouse item's qunatity total do you want to see?\n"
+                + "A - Animals\n"
+                + "T - Tools\n"
+                + "P - Provisions\n"
+                + "B - Back to Reports Menu\n";
     }
    
    @Override
@@ -34,7 +31,7 @@ public class MainMenuView extends ViewBase {
         // Declare the array to have the number of elements you intend to get 
         // from the user.
         String[] inputs = new String[1];
-        inputs[0] = getUserInput("Please make your selection.");
+        inputs[0] = getUserInput("Make your selection:");
         
         // Repeat for each input you need, putting it into its proper slot in the array.
         // Create a function for this to call
@@ -62,17 +59,20 @@ public class MainMenuView extends ViewBase {
       
         
         switch (inputs[0].trim().toUpperCase()){
-            case "N":
-                startNewGame();
+            case "A":
+                int animalTotal = loadAnimalsQTotal();
+                System.out.println("There are " + animalTotal + " total animals in the Storehouse\n");
                 break;
-            case "L": 
-                loadSavedGame();
+            case "T": 
+                int toolTotal = loadToolsQTotal();
+                System.out.println("There are " + toolTotal + " total tools in the Storehouse\n");
                 break;
-            case "H": 
-                helpMenu();
+            case "P": 
+                int provisionTotal = loadProvisionsQTotal();
+                System.out.println("There are " + provisionTotal + " total provisions in the Storehouse\n");
                 break;
-            case "Q":
-                System.out.println("Thank you for playing. Good-bye");
+            case "B":
+                System.out.println("You are now leaving the Qunatity Totals Menu...");
                 return false;
         }
         
@@ -87,19 +87,18 @@ public class MainMenuView extends ViewBase {
     // complex game stuff in our doAction() method. It will get messy very quickly.
 
 
-    private void startNewGame() {
-        View view = new NewGameView();
-        view.displayView();
+    private static int loadAnimalsQTotal(){
+        int total = StorehouseControl.calcAnimalTotal();
+        return total;
     }
     
-    private void helpMenu() {
-        View view = new HelpMenuView();
-        view.displayView();
+    private static int loadToolsQTotal(){
+        int total = StorehouseControl.calcToolTotal();
+        return total;
     }
     
-    private void loadSavedGame() {
-        View view = new LoadGameView();
-        view.displayView();
+    private static int loadProvisionsQTotal(){
+        int total = StorehouseControl.calcProvisionTotal();
+        return total;
     }
-    
 }

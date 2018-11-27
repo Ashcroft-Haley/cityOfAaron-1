@@ -7,6 +7,8 @@ package view;
 
 import model.Point;
 import cityofaaron.CityOfAaron;
+import model.Location;
+
 /**
  *
  * @author haleyashcroft
@@ -25,15 +27,7 @@ public class NewLocationView extends ViewBase {
      */
     @Override
     protected String getMessage() {
-        return "Get ready to move!\n"
-                + "-------------------\n"
-                + "Below is a grid of places you can go in the city:\n"
-                + "[W][F][R][F][W]\n"
-                + "[U][T][G][R][U]\n"
-                + "[F][C][V][V][R]\n"
-                + "[U][V][V][F][F]\n"
-                + "[W][U][F][F][W]\n"
-                + "-------------------\n"
+        return "-------------------\n"
                 + "Map Key:\n"
                 + "W = Watchtower\n"
                 + "F = Field\n"
@@ -111,9 +105,14 @@ public class NewLocationView extends ViewBase {
         
         CityOfAaron.getCurrentGame().getTheMap().setCurrentLocation(coordinates);
         
-        System.out.println("You are now standing in one of the city's wheat fields.\n"
-        + "There is nothing but wheat as far as the eye can see. We hope to have a\n"
-        + "bountiful harvest this year. It takes 20 bushels of wheat to feed one person.");
+        Location[][] locationArray = cityofaaron.CityOfAaron.getCurrentGame().getTheMap().getLocations();
+        System.out.println(locationArray[rowInput][columnInput].getDescription() + "\n"
+                + locationArray[rowInput][columnInput].getGameTips() + "\n"
+                );
+        
+//        System.out.println("You are now standing in one of the city's wheat fields.\n"
+//        + "There is nothing but wheat as far as the eye can see. We hope to have a\n"
+//        + "bountiful harvest this year. It takes 20 bushels of wheat to feed one person.");
         
         
         
@@ -121,5 +120,63 @@ public class NewLocationView extends ViewBase {
     }
     
 
+    
+    private static boolean getTheCreatedMap() {
+        Location[][] locationArray = cityofaaron.CityOfAaron.getCurrentGame().getTheMap().getLocations();
+        //locationArray[0][0].getName();
+        //System.out.println(locationArray[0][0].getName());
+        String firstRow = "";
+        String secondRow = "";
+        String thirdRow = "";
+        String fourthRow = "";
+        String fifthRow = "";
+        System.out.println("----------------\n"
+                + "Get ready to move!\n");
+        
+        for (int i = 0; i < 1; i++) {
+            for (int j = 0; j < locationArray[i].length; j++){
+                firstRow += locationArray[i][j].getName();
+            }
+            
+        }
+        System.out.println(firstRow);
+        
+        for (int i = 0; i > 0 && i < 2; i++) {
+            for (int j = 0; j < locationArray[i].length; j++){
+                secondRow += locationArray[i][j].getName();
+            }
+            
+        }
+        System.out.println(secondRow);
+        
+        for (int i = 0; i > 1 && i < 3; i++) {
+            for (int j = 0; j < locationArray[i].length; j++){
+                thirdRow += locationArray[i][j].getName();
+            }
+            
+        }
+        System.out.println(thirdRow);
+        
+        for (int i = 0; i > 2 && i < 4; i++) {
+            for (int j = 0; j < locationArray[i].length; j++){
+                fourthRow += locationArray[i][j].getName();
+            }
+            
+        }
+        System.out.println(fourthRow);
+        
+        for (int i = 0; i > 3 && i < 5; i++) {
+            for (int j = 0; j < locationArray[i].length; j++){
+                fifthRow += locationArray[i][j].getName();
+            }
+            
+        }
+        System.out.println(fifthRow);
+        
+        
+        
+        
+        return true;
+    }
     
 }

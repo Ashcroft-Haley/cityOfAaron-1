@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package view;
+import control.GameControl;
+import cityofaaron.CityOfAaron;
+import model.Location;
 
 
 /**
@@ -24,15 +27,8 @@ public class MapView extends ViewBase {
      */
     @Override
     protected String getMessage() {
-        return "Welcome to the Map of the city of Aaron!\n"
-                + "-------------------\n"
-                + "Below is a grid of places you can go in the city:\n"
-                + "[W][F][R][F][W]\n"
-                + "[U][T][G][R][U]\n"
-                + "[F][C][V][V][R]\n"
-                + "[U][V][V][F][F]\n"
-                + "[W][U][F][F][W]\n"
-                + "-------------------\n"
+        getTheCreatedMap();
+        return "-------------------\n"
                 + "Map Key:\n"
                 + "W = Watchtower\n"
                 + "F = Field\n"
@@ -104,6 +100,64 @@ public class MapView extends ViewBase {
     private boolean moveLocations(){
         NewLocationView view = new NewLocationView();
         view.displayView();
+        
+        return true;
+    }
+    
+    private static boolean getTheCreatedMap() {
+        Location[][] locationArray = cityofaaron.CityOfAaron.getCurrentGame().getTheMap().getLocations();
+        //locationArray[0][0].getName();
+        //System.out.println(locationArray[0][0].getName());
+        String firstRow = "";
+        String secondRow = "";
+        String thirdRow = "";
+        String fourthRow = "";
+        String fifthRow = "";
+        System.out.println("----------------\n"
+                + "Welcome to the Map of the city of Aaron!\n");
+        
+        for (int i = 0; i < 1; i++) {
+            for (int j = 0; j < locationArray[i].length; j++){
+                firstRow += locationArray[i][j].getName();
+            }
+            
+        }
+        System.out.println(firstRow);
+        
+        for (int i = 0; i > 0 && i < 2; i++) {
+            for (int j = 0; j < locationArray[i].length; j++){
+                secondRow += locationArray[i][j].getName();
+            }
+            
+        }
+        System.out.println(secondRow);
+        
+        for (int i = 0; i > 1 && i < 3; i++) {
+            for (int j = 0; j < locationArray[i].length; j++){
+                thirdRow += locationArray[i][j].getName();
+            }
+            
+        }
+        System.out.println(thirdRow);
+        
+        for (int i = 0; i > 2 && i < 4; i++) {
+            for (int j = 0; j < locationArray[i].length; j++){
+                fourthRow += locationArray[i][j].getName();
+            }
+            
+        }
+        System.out.println(fourthRow);
+        
+        for (int i = 0; i > 3 && i < 5; i++) {
+            for (int j = 0; j < locationArray[i].length; j++){
+                fifthRow += locationArray[i][j].getName();
+            }
+            
+        }
+        System.out.println(fifthRow);
+        
+        
+        
         
         return true;
     }

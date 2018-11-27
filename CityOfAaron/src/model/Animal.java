@@ -45,6 +45,30 @@ public class Animal implements Serializable {
         this.age = age;
     }
     
+    public ItemType getItemType() {
+        return itemType;
+    }
+    
+    public void setItemType(ItemType itemtype) {
+        this.itemType = itemType;
+    }
+    
+    public int getQuantity() {
+        return quantity;
+    }
+    
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+    
+    public Condition getCondition() {
+        return condition;
+    }
+    
+    public void setCondition(Condition condition) {
+        this.condition = condition;
+    }
+    
     
 //    @Override
 //    public String toString() {

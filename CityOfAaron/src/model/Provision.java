@@ -48,6 +48,30 @@ public class Provision implements Serializable {
         this.perishable = perishable;
     }
     
+    public ItemType getItemType() {
+        return itemType;
+    }
+    
+    public void setItemType(ItemType itemtype) {
+        this.itemType = itemType;
+    }
+    
+    public int getQuantity() {
+        return quantity;
+    }
+    
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+    
+    public Condition getCondition() {
+        return condition;
+    }
+    
+    public void setCondition(Condition condition) {
+        this.condition = condition;
+    }
+    
     //    @Override
 //    public String toString() {
 //        return "Provisions class coming soon!";
