@@ -72,9 +72,9 @@ public class GameMenuView extends ViewBase {
             case "C": 
                 manageTheCrops();
                 break;
-            //case "L": 
-                //liveTheYear();
-                //break;
+            case "L": 
+                liveTheYear();
+                break;
             case "R": 
                 loadMenuForReports();
                 break;
@@ -112,9 +112,9 @@ public class GameMenuView extends ViewBase {
         view.displayView();
     }
     
-    private boolean liveTheYear() {
-        System.out.println("LiveTheYear coming soon!");
-        return true;
+    private void liveTheYear() {
+        View view = new AnnualReportView();
+        view.displayView();
     }
     
     private void loadMenuForReports() {

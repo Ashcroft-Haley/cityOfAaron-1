@@ -17,6 +17,8 @@ import model.Author;
 import model.Condition;
 import model.ItemType;
 import model.Provision;
+import exceptions.WheatControlException;
+import exceptions.GameControlException;
 
 /**
  *
@@ -55,40 +57,61 @@ public class GameControl {
         
     }
     
-//    public  static AnnualReport liveTheYear(
-//            Game game, int tithesPercent,
-//            int bushelsForFood, int acresToPlant
-//    ){
+    public  static AnnualReport liveTheYear(
+            Game game, int tithesPercent,
+            int bushelsForFood, int acresToPlant
+    ) throws GameControlException {
 //        if (game == null || tithesPercent < 0 || tithesPercent > 100 || bushelsForFood < 0 || acresToPlant < 0){
-//            return null;
+//            throw new GameControlException("Tithes percent, bushels for food, or acres to plant are incorrect.");
 //        }
-//        
-//        AnnualReport report = new AnnualReport();
-//        report.setLandPrice(LandControl.getCurrentLandPrice());
-//        
-//        int totalWheat = game.getWheatInStorage();
-//        
-//        int harvested = WheatControl.calculateHarvest(tithesPercent, acresToPlant);
-//        int tithingAmount = (int)(double)((tithesPercent/100.0) * harvested);
-//        int lostToRats = WheatControl.calculateLossToRats(tithesPercent, totalWheat);
-//        
-//        int peopleStarved = PeopleControl.calculateMortality(bushelsForFood, game.getCurrentPopulation());
-//        int peopleMovedIn = PeopleControl.calculateNewMoveIns(game.getCurrentPopulation());
-//        
-//        totalWheat = totalWheat + harvested - tithingAmount - lostToRats;
-//        game.setWheatInStorage(totalWheat);
-//        game.setCurrentPopulation(game.getCurrentPopulation() - peopleStarved + peopleMovedIn);
-//        
-//        report.setBushelsHarvested(harvested);
-//        report.setTithingAmount(tithingAmount);
-//        report.setLostToRats(lostToRats);
-//        report.setPeopleStarved(peopleStarved);
-//        report.setPeopleMovedIn(peopleMovedIn);
-//        
-//        report.setEndingWheatInStorage(game.getWheatInStorage());
-//        report.setEndingPopulation(game.getCurrentPopulation());
-//        report.setEndingAcresOwned(game.getAcresOwned());
-//    }
+        
+        AnnualReport report = new AnnualReport();
+        //report.setLandPrice(LandControl.getCurrentLandPrice());
+        
+        int totalWheat = game.getWheatInStorage();
+        
+        int harvested = 0;
+        int tithingAmount = 0;
+        int lostToRats = 0;
+        int peopleStarved = 0;
+        int peopleMovedIn = 0;
+        
+        try {
+            harvested = WheatControl.calculateHarvest(tithesPercent, acresToPlant);
+        } catch (WheatControlException ie){
+            System.out.println(ie.getMessage());
+            throw new GameControlException("Cannot calculate harvest.");
+        }
+        tithingAmount = (int)(double)((tithesPercent/100.0) * harvested);
+        
+        
+        
+        try {
+            lostToRats = WheatControl.calculateLossToRats(tithesPercent, totalWheat);
+        } catch(WheatControlException ie) {
+            System.out.println(ie.getMessage());
+            throw new GameControlException("Cannot calculate the amount of wheat lost to rats.");
+        }
+        
+        peopleStarved = PeopleControl.calculateMortality(bushelsForFood, game.getCurrentPopulation());
+        peopleMovedIn = PeopleControl.calculateNewMoveIns(game.getCurrentPopulation());
+        
+        totalWheat = totalWheat + harvested - tithingAmount - lostToRats;
+        game.setWheatInStorage(totalWheat);
+        game.setCurrentPopulation(game.getCurrentPopulation() - peopleStarved + peopleMovedIn);
+        
+        report.setBushelsHarvested(harvested);
+        report.setTithingAmount(tithingAmount);
+        report.setLostToRats(lostToRats);
+        report.setPeopleStarved(peopleStarved);
+        report.setPeopleMovedIn(peopleMovedIn);
+        
+        report.setEndingWheatInStorage(game.getWheatInStorage());
+        report.setEndingPopulation(game.getCurrentPopulation());
+        report.setEndingAcresOwned(game.getAcresOwned());
+        
+        return report;
+    }
     
     public static Game createNewGame(String playerName) {
         

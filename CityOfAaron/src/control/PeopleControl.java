@@ -29,4 +29,9 @@ public class PeopleControl {
         
     }
     
+    public static int calculateMortality(int bushelsForfood, int currentPopulation) {
+        System.out.println("Calculate harvest method coming soon!");
+        return 1;
+    }
+    
 }

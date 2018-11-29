@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package control;
+import exceptions.WheatControlException;
 
 /**
  *
@@ -11,7 +12,8 @@ package control;
  */
 public class WheatControl {
     
-    public static int calculateLossToRats(int tithesPercent, int wheatInStorage) {
+    public static int calculateLossToRats(int tithesPercent, int wheatInStorage)
+        throws WheatControlException {
         // Calculate the amount of wheat in storage lost to rats, based on
         // the percentage of tithing paid. Assume that GameControl.getRandomNumber(low, high)
         // is available to be called.
@@ -31,14 +33,13 @@ public class WheatControl {
         //percentLost = getRandomNumber(low, high) * 0.01 // turn into a fraction
 
         //return wheatInStorage * percentLost // will need to be cast back to int
-
         
         if (wheatInStorage < 0) {
-            return -1;
+            throw new WheatControlException("Wheat in Storage cannot be negative.");
         }
         
         if (tithesPercent < 0 || tithesPercent > 100) {
-            return -2;
+            throw new WheatControlException("Tithing percentage must greater than 0 and not more than 100.");
         };
         
         int chanceOfRats = GameControl.getRandomNumber(1,100);
@@ -76,8 +77,18 @@ public class WheatControl {
     }
     
     
-    //public static int calculateHarvest(int tithesPercent, int wheatInStorage) {
-
-    //}
+    public static int calculateHarvest(int tithesPercent, int wheatInStorage) 
+        throws WheatControlException{
+        if (wheatInStorage < 0) {
+            throw new WheatControlException("Wheat in Storage cannot be negative.");
+        }
+        
+        if (tithesPercent < 0 || tithesPercent > 100) {
+            throw new WheatControlException("Tithing percentage must greater than 0 and not more than 100.");
+        };
+        
+        System.out.println("Calculate harvest method coming soon!");
+        return 1;
+    }
     
 }

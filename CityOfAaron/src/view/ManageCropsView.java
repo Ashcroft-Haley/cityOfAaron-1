@@ -98,30 +98,26 @@ public class ManageCropsView extends ViewBase {
     }
     
     private boolean loadSellLandView() {
-        System.out.println("SellLandView coming soon!");
-        //View view = new SellLandView();
-        //view.displayView();
+        View view = new SellLandView();
+        view.displayView();
         return true;
     }
     
     private boolean loadFeedSomePeopleView() {
-        System.out.println("FeedSomePeopleView coming soon!");
-        //View view = new FeedSomePeopleView();
-        //view.displayView();
+        View view = new FeedSomePeopleView();
+        view.displayView();
         return true;
     }
     
     private boolean loadPlantCropsView() {
-        System.out.println("PlantCropsView coming soon!");
-        //View view = new PlantCropsView();
-        //view.displayView();
+        View view = new PlantCropsView();
+        view.displayView();
         return true;
     }
     
     private boolean loadPayTithingView() {
-        System.out.println("PayTithingView coming soon!");
-        //View view = new PayTithingView();
-        //view.displayView();
+        View view = new PayTithingView();
+        view.displayView();
         return true;
     }
 
