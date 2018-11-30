@@ -79,15 +79,20 @@ public class FeedSomePeopleView extends ViewBase {
         //returns a null value for the wheat in storage.
         storedWheat = CityOfAaron.getCurrentGame().getWheatInStorage();
         
-        
-        int intPut = Integer.parseInt(inputs[0]);
+        int input = 0;
+        try{
+            input = Integer.parseInt(inputs[0]);
+        } catch(NumberFormatException nfe) {
+            System.out.println("The number entered is not valid.");
+            System.out.println(nfe.getMessage());
+        }
         
         if ((inputs[0] == null) || (inputs[0].equals(""))) {
             System.out.println("But thou must...");
             return true;
         }        
         
-        if(storedWheat < intPut || intPut < 0){
+        if(storedWheat < input || input < 0){
             System.out.println("Apologies, but your grain check bounced.\n"
                     + "Please enter a positive value equal to or less than "
                     + "your current grain in storage.");
@@ -95,7 +100,7 @@ public class FeedSomePeopleView extends ViewBase {
         }
         else{
             //This updates the wheat stored.
-            updateWheat(storedWheat, intPut);
+            updateWheat(storedWheat, input);
             }   
         
         return false;

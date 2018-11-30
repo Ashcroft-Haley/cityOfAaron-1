@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package control;
-
+import exceptions.GameControlException;
 /**
  *
  * @author haleyashcroft
@@ -20,7 +20,12 @@ public class PeopleControl {
         int low = 1;
         int high = 5;
         
-        double percentGrowth = GameControl.getRandomNumber(low, high) * 0.01; //Returns the number as a fraction
+        double percentGrowth = 0;
+        try {
+            percentGrowth = GameControl.getRandomNumber(low, high) * 0.01; //Returns the number as a fraction
+        } catch(GameControlException gce) {
+            System.out.println(gce.getMessage());
+        }
         double numberOfNewPeople = currentPopulation * percentGrowth;
         double roundedValue = Math.round(numberOfNewPeople); //Rounds double value so it can be turned into an int
         int intValue = (int) roundedValue; //Converting a double to int using explcit casting

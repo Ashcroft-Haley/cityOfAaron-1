@@ -60,8 +60,13 @@ public class BuyLandView extends ViewBase {
             System.out.println("No acres entered. Returning to the Main Menu...");
             return false;
         }
-        
-        int acreInput = Integer.parseInt(inputs[0]);
+        int acreInput = 0;
+        try{
+            acreInput = Integer.parseInt(inputs[0]);
+        } catch(NumberFormatException nfe) {
+            System.out.println("The number inputted is not valid");
+            System.out.println(nfe.getMessage());
+        }
         
         if (acreInput < 0) {
             System.out.println("Acre value must be positive. Try again.");
