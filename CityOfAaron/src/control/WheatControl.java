@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package control;
+import exceptions.GameControlException;
 import exceptions.WheatControlException;
 
 /**
@@ -42,7 +43,14 @@ public class WheatControl {
             throw new WheatControlException("Tithing percentage must greater than 0 and not more than 100.");
         };
         
-        int chanceOfRats = GameControl.getRandomNumber(1,100);
+        int chanceOfRats = 0;
+        
+        try{
+        chanceOfRats = GameControl.getRandomNumber(1,100);
+        } catch(GameControlException gce) {
+            System.out.println(gce.getMessage());
+        }
+        
         if (chanceOfRats >= 30) {
             return 0;
         };
@@ -66,8 +74,13 @@ public class WheatControl {
             high = 5;
         };
         
+        double percentLost = 0;
         
-        double percentLost = GameControl.getRandomNumber(low, high) * 0.01; //Returns the number as a fraction
+        try {
+            percentLost = GameControl.getRandomNumber(low, high) * 0.01;
+        } catch (GameControlException gce){
+            System.out.println(gce.getMessage());
+        }
         double totalRatLoss = wheatInStorage * percentLost;
         double roundedValue = Math.round(totalRatLoss); //Rounds double value so it can be turned into an int
         int intValue = (int) roundedValue; //Converting a double to int using explcit casting
@@ -78,7 +91,7 @@ public class WheatControl {
     
     
     public static int calculateHarvest(int tithesPercent, int wheatInStorage) 
-        throws WheatControlException{
+        throws WheatControlException {
         if (wheatInStorage < 0) {
             throw new WheatControlException("Wheat in Storage cannot be negative.");
         }

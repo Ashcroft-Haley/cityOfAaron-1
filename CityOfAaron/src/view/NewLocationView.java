@@ -80,8 +80,21 @@ public class NewLocationView extends ViewBase {
             return false;
         }
         
-        int rowInput = Integer.parseInt(inputs[0]);
-        int columnInput = Integer.parseInt(inputs[0]);
+        int rowInput = 0;
+        int columnInput = 0;
+        try{
+            rowInput = Integer.parseInt(inputs[0]);
+        } catch (NumberFormatException nfe) {
+            System.out.println("Number entered was not a valid number.");
+            System.out.println(nfe.getMessage());
+        }
+        
+        try{
+            columnInput = Integer.parseInt(inputs[0]);
+        } catch(NumberFormatException nfe) {
+            System.out.println("Number entered was not a valid number.");
+            System.out.println(nfe.getMessage());
+        }
         moveToNewLocation(rowInput, columnInput);
         
         return false;

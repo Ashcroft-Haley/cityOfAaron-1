@@ -124,7 +124,7 @@ public class MapView extends ViewBase {
         }
         System.out.println(firstRow);
         
-        for (int i = 0; i > 0 && i < 2; i++) {
+        for (int i = 1; i > 0 && i < 2; i++) {
             for (int j = 0; j < locationArray[i].length; j++){
                 secondRow += locationArray[i][j].getName();
             }
@@ -132,7 +132,7 @@ public class MapView extends ViewBase {
         }
         System.out.println(secondRow);
         
-        for (int i = 0; i > 1 && i < 3; i++) {
+        for (int i = 2; i > 1 && i < 3; i++) {
             for (int j = 0; j < locationArray[i].length; j++){
                 thirdRow += locationArray[i][j].getName();
             }
@@ -140,7 +140,7 @@ public class MapView extends ViewBase {
         }
         System.out.println(thirdRow);
         
-        for (int i = 0; i > 2 && i < 4; i++) {
+        for (int i = 3; i > 2 && i < 4; i++) {
             for (int j = 0; j < locationArray[i].length; j++){
                 fourthRow += locationArray[i][j].getName();
             }
@@ -148,7 +148,7 @@ public class MapView extends ViewBase {
         }
         System.out.println(fourthRow);
         
-        for (int i = 0; i > 3 && i < 5; i++) {
+        for (int i = 4; i > 3 && i < 5; i++) {
             for (int j = 0; j < locationArray[i].length; j++){
                 fifthRow += locationArray[i][j].getName();
             }

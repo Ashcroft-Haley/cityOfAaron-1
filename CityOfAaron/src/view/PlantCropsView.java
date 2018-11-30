@@ -53,15 +53,20 @@ public class PlantCropsView extends ViewBase {
      
         Harvest = CityOfAaron.getCurrentGame().getWheatInStorage();
         
-        
-        int intPut = Integer.parseInt(inputs[0]);
+        int input = 0;
+        try{
+            input = Integer.parseInt(inputs[0]);
+        } catch(NumberFormatException nfe) {
+            System.out.println("The number entered is not valid.");
+            System.out.println(nfe.getMessage());
+        }
         
         if ((inputs[0] == null) || (inputs[0].equals(""))) {
             System.out.println("That's not a valid input, please try harder.\n");
             return true;
         }        
         
-        if(intPut > 100 || intPut < 0){
+        if(input > 100 || input < 0){
             System.out.println("Please enter a valid percentage "
                     + "BETWEEN 0% and 100%.\n");
             return true;

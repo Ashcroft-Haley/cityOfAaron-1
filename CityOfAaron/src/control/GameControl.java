@@ -10,8 +10,6 @@ import model.Player;
 import model.Map;
 import model.Animal;
 import model.InventoryItem;
-import model.Location;
-import model.Point;
 import model.Storehouse;
 import model.Author;
 import model.Condition;
@@ -28,25 +26,26 @@ public class GameControl {
     
     private static FakeRandom randomGenerator = new FakeRandom();
     
-    protected static void setRandomGenerator(FakeRandom random) {
+    protected static void setRandomGenerator(FakeRandom random){
         randomGenerator = random;
     };
     
-    public static int getRandomNumber(int lowValue, int highValue){
+    public static int getRandomNumber (int lowValue, int highValue)
+    throws GameControlException{
         
         // If low < 0 or high < 0 then return -1
         if (lowValue < 0 || highValue < 0) {
-            return -1;
+            throw new GameControlException("Low value or high value is below zero.");
             
         }
         // If high <= low then return -2
         if (highValue <= lowValue) {
-            return -2;
+            throw new GameControlException("High value cannot be less than or equal to the low value.");
         }
         
         // If high is the maximum value for integers, then return -3
         if (highValue == Integer.MAX_VALUE) {
-            return -3;
+            throw new GameControlException("High value is the maximum value for integers.");
         }
         
         // Calculate the size of the range: add one so Random() icludes high value
@@ -61,17 +60,16 @@ public class GameControl {
             Game game, int tithesPercent,
             int bushelsForFood, int acresToPlant
     ) throws GameControlException {
-//        if (game == null || tithesPercent < 0 || tithesPercent > 100 || bushelsForFood < 0 || acresToPlant < 0){
-//            throw new GameControlException("Tithes percent, bushels for food, or acres to plant are incorrect.");
-//        }
+        if (game == null || tithesPercent < 0 || tithesPercent > 100 || bushelsForFood < 0 || acresToPlant < 0){
+            throw new GameControlException("Tithes percent, bushels for food, or acres to plant are incorrect.");
+        }
         
         AnnualReport report = new AnnualReport();
-        //report.setLandPrice(LandControl.getCurrentLandPrice());
+        report.setLandPrice(LandControl.getCurrentLandPrice());
         
         int totalWheat = game.getWheatInStorage();
         
         int harvested = 0;
-        int tithingAmount = 0;
         int lostToRats = 0;
         int peopleStarved = 0;
         int peopleMovedIn = 0;
@@ -82,7 +80,7 @@ public class GameControl {
             System.out.println(ie.getMessage());
             throw new GameControlException("Cannot calculate harvest.");
         }
-        tithingAmount = (int)(double)((tithesPercent/100.0) * harvested);
+        int tithingAmount = (int)(double)((tithesPercent/100.0) * harvested);
         
         
         
@@ -113,7 +111,8 @@ public class GameControl {
         return report;
     }
     
-    public static Game createNewGame(String playerName) {
+    public static Game createNewGame(String playerName) 
+    {
         
         Player player = new Player();
         player.setName(playerName);
@@ -125,7 +124,7 @@ public class GameControl {
         game.setAcresOwned(1000);
         game.setWheatInStorage(2700);
         
-        Map map = createMap();
+        Map map = MapControl.createMap();
         Provision[] provisions = createProvisions();
         Animal[] animals = createAnimals();
         InventoryItem[] inventoryItems = createTools();
@@ -146,57 +145,8 @@ public class GameControl {
         return game;
     }
     
-    
-    
-    
-    public static Map createMap() {
-
-       
-        Map map = new Map();
-        int noOfRows = 5;
-        int noOfColumns = 5;
-        
-        Location[][] locations = new Location[noOfRows][noOfColumns];
-        
-        locations[0][0] = new Location("W", "Watchtower", "Fill in a description...", new String[]{});
-        locations[0][1] = new Location("F", "Field", "Fill in a description...", new String[]{});
-        locations[0][2] = new Location("R", "River", "Fill in a description...", new String[]{});
-        locations[0][3] = new Location("F", "Field", "Fill in a description...", new String[]{});
-        locations[0][4] = new Location("W", "Watchtower", "Fill in a description...", new String[]{});
-        
-        locations[1][0] = new Location("U", "Undeveloped Land", "Fill in a description...", new String[]{});
-        locations[1][1] = new Location("T", "Temple", "Fill in a description...", new String[]{});
-        locations[1][2] = new Location("G", "Granary/ Storehouse", "Fill in a description...", new String[]{});
-        locations[1][3] = new Location("R", "River", "Fill in a description...", new String[]{});
-        locations[1][4] = new Location("U", "Undeveloped Land", "Fill in a description...", new String[]{});
-        
-        locations[2][0] = new Location("F", "Field", "Fill in a description...", new String[]{});
-        locations[2][1] = new Location("C", "Ruler's Court", "Fill in a description...", new String[]{});
-        locations[2][2] = new Location("V", "Village", "Fill in a description...", new String[]{});
-        locations[2][3] = new Location("V", "Village", "Fill in a description...", new String[]{});
-        locations[2][4] = new Location("R", "River", "Fill in a description...", new String[]{});
-        
-        locations[3][0] = new Location("U", "Undeveloped Land", "Fill in a description...", new String[]{});
-        locations[3][1] = new Location("V", "Village", "Fill in a description...", new String[]{});
-        locations[3][2] = new Location("V", "Village", "Fill in a description...", new String[]{});
-        locations[3][3] = new Location("F", "Field", "Fill in a description...", new String[]{});
-        locations[3][4] = new Location("F", "Field", "Fill in a description...", new String[]{});
-        
-        locations[4][0] = new Location("W", "Watchtower", "Fill in a description...", new String[]{});
-        locations[4][1] = new Location("U", "Undeveloped Land", "Fill in a description...", new String[]{});
-        locations[4][2] = new Location("F", "Field", "Fill in a description...", new String[]{});
-        locations[4][3] = new Location("F", "Field", "Fill in a description...", new String[]{});
-        locations[4][4] = new Location("W", "Watchtower", "Fill in a description...", new String[]{});
-        map.setLocations(locations);
-        
-        Point point = new Point(0, 0);
-        map.setCurrentLocation(point);
-        
-        return map;
-        
-    }
-    
-    public static Provision[] createProvisions() {
+    public static Provision[] createProvisions() 
+    {
         Provision[] provisions = new Provision[5];
         provisions[0] = new Provision(ItemType.Provision, 100, Condition.FAIR, "Honey", true);
         provisions[1] = new Provision(ItemType.Provision, 100, Condition.GOOD, "Tent", false);
@@ -206,7 +156,8 @@ public class GameControl {
         return provisions;
     }
     
-    public static Animal[] createAnimals() {
+    public static Animal[] createAnimals() 
+    {
         Animal[] animals = new Animal[5];
         animals[0] = new Animal(ItemType.Animal, 50, Condition.FAIR, "Horse", 3);
         animals[1] = new Animal(ItemType.Animal, 52, Condition.FAIR, "Cow", 4);
@@ -216,7 +167,8 @@ public class GameControl {
         return animals;
     }
     
-    public static InventoryItem[] createTools() {
+    public static InventoryItem[] createTools() 
+    {
         InventoryItem[] items = new InventoryItem[5];
         items[0] = new InventoryItem(ItemType.Tool, 20, Condition.GOOD, "Axe");
         items[1] = new InventoryItem(ItemType.Tool, 5, Condition.GOOD, "Hammer");
