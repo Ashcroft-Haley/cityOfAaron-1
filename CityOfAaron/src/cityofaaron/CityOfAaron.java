@@ -32,9 +32,19 @@ public class CityOfAaron {
     
     public static void main(String[] args) {
         
+        try{
+            
+        
         View startProgramView = new StartProgramView();
         startProgramView.displayView();
     }
-
-    
+        catch(Throwable te){
+            System.out.println("Exception caught in Main");
+            System.out.println(te.getMessage());
+            te.printStackTrace();
+            System.exit(0);
+        }
+            
+        }
+        
 }
