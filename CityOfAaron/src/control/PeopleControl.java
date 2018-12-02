@@ -5,13 +5,15 @@
  */
 package control;
 import exceptions.GameControlException;
+import exceptions.PeopleControlException;
 /**
  *
  * @author haleyashcroft
  */
 public class PeopleControl {
     
-    public static int calculateNewMoveIns(int currentPopulation) {
+    public static int calculateNewMoveIns(int currentPopulation){
+
         
         if (currentPopulation < 0) {
             return -1;
@@ -30,10 +32,12 @@ public class PeopleControl {
         double roundedValue = Math.round(numberOfNewPeople); //Rounds double value so it can be turned into an int
         int intValue = (int) roundedValue; //Converting a double to int using explcit casting
         
+        
+        
         return intValue; //Returns move ins as an int
         
     }
-    
+
     public static int calculateMortality(int bushelsForfood, int currentPopulation) {
         System.out.println("Calculate harvest method coming soon!");
         return 1;
