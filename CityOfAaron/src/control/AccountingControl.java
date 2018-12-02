@@ -6,6 +6,7 @@
 package control;
 
 import model.InventoryItem;
+import exceptions.AccountingControlException;
 
 /**
  *
@@ -15,28 +16,7 @@ public class AccountingControl {
     
     
     
-    /*
-     public static void ToolSort (InventoryItem[] tools){
-
-        InventoryItem[] tool = new InventoryItem[5];
-        tool = tools;
-        int n = tool.length;
-        int k;
-        for (int m = n; m >= 0; m--){
-            for (int i = 0; i < n - 1; i++){
-                k = i + 1;
-                if (tool[i].getQuantity() > tool[k].getQuantity()){
-                   
-                    swapTools(i, k, tool);
-                }
-            }
-        }
-        
-        
-    }
-    */
-    
-    
+  
     
     
     public static void ToolMax (){
@@ -60,19 +40,5 @@ public class AccountingControl {
         System.out.println("There are more " + tool + "s than any other tool.\n"
                 + "Right now there are " + highSoFar + " in storage.");
     } 
-    /*
-    private static void swapTools(int i, int j, InventoryItem[] item){
-       int temp; //= new InventoryItem();
-        temp = item[i].getQuantity();
-        item[i]= item[j];
-        item[j].setQuantity(temp);
-        
-    }
-    
-    private static void readTools(InventoryItem[] tools){
-        for(int ){
-            f
-        }
-    }
-    */
+
 }
