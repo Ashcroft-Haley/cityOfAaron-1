@@ -17,6 +17,7 @@ import model.ItemType;
 import model.Provision;
 import exceptions.WheatControlException;
 import exceptions.GameControlException;
+import view.ErrorView;
 
 /**
  *
@@ -77,7 +78,8 @@ public class GameControl {
         try {
             harvested = WheatControl.calculateHarvest(tithesPercent, acresToPlant);
         } catch (WheatControlException ie){
-            System.out.println(ie.getMessage());
+            ErrorView.display("GameControl", 
+                    "Error calculating harvest" + ie.getMessage());
             throw new GameControlException("Cannot calculate harvest.");
         }
         int tithingAmount = (int)(double)((tithesPercent/100.0) * harvested);
@@ -87,7 +89,7 @@ public class GameControl {
         try {
             lostToRats = WheatControl.calculateLossToRats(tithesPercent, totalWheat);
         } catch(WheatControlException ie) {
-            System.out.println(ie.getMessage());
+            ErrorView.display("GameControl", ie.getMessage());
             throw new GameControlException("Cannot calculate the amount of wheat lost to rats.");
         }
         

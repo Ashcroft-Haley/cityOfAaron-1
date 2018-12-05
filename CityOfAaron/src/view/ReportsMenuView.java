@@ -74,6 +74,7 @@ public class ReportsMenuView extends ViewBase {
                 loadProvisionsInStorehouse();
                 break;
             case "M":
+                loadMaximumTools();
                 AccountingControl.ToolMax();
                 break;
             case "AU": 
@@ -83,7 +84,7 @@ public class ReportsMenuView extends ViewBase {
                 loadListTotalView();
                 break;
             case "B":
-                System.out.println("You are now leaving the Reports Menu...");
+                this.console.println("You are now leaving the Reports Menu...");
                 return false;
         }
         
@@ -98,28 +99,37 @@ public class ReportsMenuView extends ViewBase {
     // complex game stuff in our doAction() method. It will get messy very quickly.
 
     private boolean loadAnimalsInStorehouse() {
-        System.out.println("Animals in Storehouse coming soon!");
+        this.console.println("Animals in Storehouse coming soon!");
         return true;
     }
     
     private boolean loadToolsInStorehouse() {
-        System.out.println("Tools in Storehouse coming soon!");
+        this.console.println("Tools in Storehouse coming soon!");
         return true;
     }
     
     private boolean loadProvisionsInStorehouse() {
-        System.out.println("Provisons in Storehouse coming soon!");
+        this.console.println("Provisons in Storehouse coming soon!");
         return true;
     }
     
     private boolean loadAuthors() {
-        System.out.println("Created by Haley Ashcroft and Macen Steuhser");
+        this.console.println("Created by Haley Ashcroft and Macen Steuhser");
         return true;
     }
     
     private boolean loadListTotalView(){
         View view = new ListTotalView();
         view.displayView();
+        return true;
+    }
+    
+    private boolean loadMaximumTools(){
+        int highSoFar = AccountingControl.ToolMax();
+        String tool = AccountingControl.ToolName();
+        
+        System.out.println("There are more " + tool + "s than any other tool.\n"
+                + "Right now there are " + highSoFar + " in storage.");
         return true;
     }
     

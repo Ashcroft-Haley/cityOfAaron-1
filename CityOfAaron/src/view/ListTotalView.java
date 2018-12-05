@@ -61,18 +61,18 @@ public class ListTotalView extends ViewBase {
         switch (inputs[0].trim().toUpperCase()){
             case "A":
                 int animalTotal = loadAnimalsQTotal();
-                System.out.println("There are " + animalTotal + " total animals in the Storehouse\n");
+                this.console.println("There are " + animalTotal + " total animals in the Storehouse\n");
                 break;
             case "T": 
                 int toolTotal = loadToolsQTotal();
-                System.out.println("There are " + toolTotal + " total tools in the Storehouse\n");
+                this.console.println("There are " + toolTotal + " total tools in the Storehouse\n");
                 break;
             case "P": 
                 int provisionTotal = loadProvisionsQTotal();
-                System.out.println("There are " + provisionTotal + " total provisions in the Storehouse\n");
+                this.console.println("There are " + provisionTotal + " total provisions in the Storehouse\n");
                 break;
             case "B":
-                System.out.println("You are now leaving the Qunatity Totals Menu...");
+                this.console.println("You are now leaving the Qunatity Totals Menu...");
                 return false;
         }
         

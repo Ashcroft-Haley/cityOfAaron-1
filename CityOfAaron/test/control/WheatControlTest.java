@@ -54,10 +54,10 @@ public class WheatControlTest {
         fakeRandom.add(20);
         fakeRandom.add(4);
         try{
-        assertEquals(-2, WheatControl.calculateLossToRats(101, 1000), 0.0);
+            assertEquals(-2, WheatControl.calculateLossToRats(101, 1000), 0.0);
         }catch(Throwable te){
-        System.out.println("TestError");
-    }
+            System.out.println("TestError");
+        }
     }
     @Test
     public void testTithingShortage() {

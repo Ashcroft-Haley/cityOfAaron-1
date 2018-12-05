@@ -57,19 +57,18 @@ public class BuyLandView extends ViewBase {
       
         
         if (inputs[0] == null || inputs[0].equals("")) {
-            System.out.println("No acres entered. Returning to the Main Menu...");
+            ErrorView.display(this.getClass().getName(), "No acres entered. Returning to the Main Menu...");
             return false;
         }
         int acreInput = 0;
         try{
             acreInput = Integer.parseInt(inputs[0]);
         } catch(NumberFormatException nfe) {
-            System.out.println("The number inputted is not valid");
-            System.out.println(nfe.getMessage());
+            ErrorView.display("BuyLandView", nfe.getMessage());
         }
         
         if (acreInput < 0) {
-            System.out.println("Acre value must be positive. Try again.");
+            ErrorView.display("BuyLandView", "Acre value must be positive. Try again.");
             getInputs();
         }
         
@@ -87,7 +86,7 @@ public class BuyLandView extends ViewBase {
 
 
     private boolean buyLand(int acreInput) {
-        System.out.println("LandControl class coming soon!");
+        this.console.println("LandControl class coming soon!");
         return true;
     }
 

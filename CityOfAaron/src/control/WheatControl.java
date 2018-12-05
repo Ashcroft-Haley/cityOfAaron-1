@@ -6,6 +6,7 @@
 package control;
 import exceptions.GameControlException;
 import exceptions.WheatControlException;
+import view.ErrorView;
 
 /**
  *
@@ -48,7 +49,7 @@ public class WheatControl {
         try{
         chanceOfRats = GameControl.getRandomNumber(1,100);
         } catch(GameControlException gce) {
-            System.out.println(gce.getMessage());
+            ErrorView.display("WheatControl", gce.getMessage());
         }
         
         if (chanceOfRats >= 30) {
@@ -79,7 +80,7 @@ public class WheatControl {
         try {
             percentLost = GameControl.getRandomNumber(low, high) * 0.01;
         } catch (GameControlException gce){
-            System.out.println(gce.getMessage());
+            ErrorView.display("WheatControl", gce.getMessage());
         }
         double totalRatLoss = wheatInStorage * percentLost;
         double roundedValue = Math.round(totalRatLoss); //Rounds double value so it can be turned into an int
@@ -100,8 +101,34 @@ public class WheatControl {
             throw new WheatControlException("Tithing percentage must greater than 0 and not more than 100.");
         };
         
-        System.out.println("Calculate harvest method coming soon!");
-        return 1;
+        
+        int low = 0;
+        int high = 0;
+        
+        if(tithesPercent > 12) {
+            low = 2;
+            high = 5;
+        }
+        
+        if(tithesPercent > 8 && tithesPercent < 12) {
+            low = 2;
+            high = 4;
+        }
+        
+        if (tithesPercent < 8) {
+            low = 1;
+            high = 3;
+        }
+        
+        int bushelsPerAcre = 0;
+        
+        try {
+            bushelsPerAcre = GameControl.getRandomNumber(low, high);
+        } catch (GameControlException gce){
+            ErrorView.display("WheatControl", gce.getMessage());
+        }
+        
+        return bushelsPerAcre;
     }
     
 }

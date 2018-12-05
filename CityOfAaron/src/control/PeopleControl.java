@@ -6,6 +6,8 @@
 package control;
 import exceptions.GameControlException;
 import exceptions.PeopleControlException;
+import view.ErrorView;
+import cityofaaron.CityOfAaron;
 /**
  *
  * @author haleyashcroft
@@ -26,7 +28,7 @@ public class PeopleControl {
         try {
             percentGrowth = GameControl.getRandomNumber(low, high) * 0.01; //Returns the number as a fraction
         } catch(GameControlException gce) {
-            System.out.println(gce.getMessage());
+            ErrorView.display("PeopleControl", gce.getMessage());
         }
         double numberOfNewPeople = currentPopulation * percentGrowth;
         double roundedValue = Math.round(numberOfNewPeople); //Rounds double value so it can be turned into an int
@@ -39,8 +41,14 @@ public class PeopleControl {
     }
 
     public static int calculateMortality(int bushelsForfood, int currentPopulation) {
-        System.out.println("Calculate harvest method coming soon!");
-        return 1;
+        int adequatlyFed = bushelsForfood/20;
+        int peopleWhoDied = 0;
+        
+        if(adequatlyFed < currentPopulation) {
+            peopleWhoDied = currentPopulation - adequatlyFed;
+            return peopleWhoDied;
+        }
+        return peopleWhoDied;
     }
     
 }

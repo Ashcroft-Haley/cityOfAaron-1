@@ -6,6 +6,9 @@
 package view;
 
 import java.util.Scanner;
+import java.io.BufferedReader;
+import cityofaaron.CityOfAaron;
+import java.io.PrintWriter;
 
 /**
  *
@@ -21,6 +24,9 @@ public abstract class ViewBase implements View {
     protected abstract String[] getInputs();
 
     public abstract boolean doAction(String[] inputs);
+    
+    protected final BufferedReader keyboard = CityOfAaron.getInFile();
+    protected final PrintWriter console = CityOfAaron.getOutFile();
 
     public void displayView(){
         boolean keepGoing = true;
@@ -28,7 +34,7 @@ public abstract class ViewBase implements View {
         while (keepGoing == true) {
             String message = getMessage();
             if(message != null) {
-                System.out.println(getMessage());
+                this.console.println(getMessage());
             }
 
             String[] inputs = getInputs();
@@ -38,23 +44,28 @@ public abstract class ViewBase implements View {
     }
     
     protected String getUserInput(String prompt, boolean allowEmpty){
-        Scanner keyboard = new Scanner(System.in);
         String input = "";
         boolean inputRecieved = false;
         
-        while(inputRecieved == false) {
-            System.out.println(prompt);
-            input = keyboard.nextLine();
-            
-            if(input == null) {
-                input = "";
+        
+        try {
+            while(inputRecieved == false) {
+                this.console.println(prompt);
+                input = this.keyboard.readLine();
+
+                if(input == null) {
+                    input = "";
+                }
+
+                input = input.trim();
+
+                if (input.equals("") == false || allowEmpty == true){
+                    inputRecieved = true;
+                }
+                break;
             }
-            
-            input = input.trim();
-            
-            if (input.equals("") == false || allowEmpty == true){
-                inputRecieved = true;
-            }
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(), "Error reading input: " + e.getMessage());
         }
         return input;
     }

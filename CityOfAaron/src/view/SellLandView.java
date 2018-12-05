@@ -57,17 +57,16 @@ public class SellLandView extends ViewBase {
         try{
             input = Integer.parseInt(inputs[0]);
         } catch(NumberFormatException nfe) {
-            System.out.println("The number inputted is invalid.");
-            System.out.println(nfe.getMessage());
+            ErrorView.display(this.getClass().getName(), "The number inputted is invalid." + nfe.getMessage());
         }
         
         if ((inputs[0] == null) || (inputs[0].equals(""))) {
-            System.out.println("That's not a valid input, please try harder.\n");
+            ErrorView.display(this.getClass().getName(), "That's not a valid input, please try harder.\n");
             return true;
         }        
         
         if(input > 100 || input < 0){
-            System.out.println("Please enter a valid percentage "
+            ErrorView.display(this.getClass().getName(), "Please enter a valid percentage "
                     + "BETWEEN 0% and 100%.\n");
             return true;
         }

@@ -82,7 +82,7 @@ public class GameMenuView extends ViewBase {
                 saveCurrentGame();
                 break;
             case "B":
-                System.out.println("You are now leaving the Game Menu...");
+                this.console.println("You are now leaving the Game Menu...");
                 return false;
         }
         
@@ -123,7 +123,7 @@ public class GameMenuView extends ViewBase {
     }
     
     private boolean saveCurrentGame() {
-        System.out.println("SaveCurrentGame coming soon!");
+        this.console.println("SaveCurrentGame coming soon!");
         //View view = new SaveGameView();
         //view.displayView();
         return true;

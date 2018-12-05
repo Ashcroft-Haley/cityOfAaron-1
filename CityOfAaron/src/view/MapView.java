@@ -85,7 +85,7 @@ public class MapView extends ViewBase {
                 moveLocations();
                 break;
             case "E":
-                System.out.println("You are now exiting the Map.\n");
+                this.console.println("You are now exiting the Map.\n");
                 return false;
         }
         
@@ -104,16 +104,16 @@ public class MapView extends ViewBase {
         return true;
     }
     
-    private static boolean getTheCreatedMap() {
+    private boolean getTheCreatedMap() {
         Location[][] locationArray = cityofaaron.CityOfAaron.getCurrentGame().getTheMap().getLocations();
         //locationArray[0][0].getName();
-        //System.out.println(locationArray[0][0].getName());
+        //this.console.println(locationArray[0][0].getName());
         String firstRow = "";
         String secondRow = "";
         String thirdRow = "";
         String fourthRow = "";
         String fifthRow = "";
-        System.out.println("----------------\n"
+        this.console.println("----------------\n"
                 + "Welcome to the Map of the city of Aaron!\n");
         
         for (int i = 0; i < 1; i++) {
@@ -122,7 +122,7 @@ public class MapView extends ViewBase {
             }
             
         }
-        System.out.println(firstRow);
+        this.console.println(firstRow);
         
         for (int i = 1; i > 0 && i < 2; i++) {
             for (int j = 0; j < locationArray[i].length; j++){
@@ -130,7 +130,7 @@ public class MapView extends ViewBase {
             }
             
         }
-        System.out.println(secondRow);
+        this.console.println(secondRow);
         
         for (int i = 2; i > 1 && i < 3; i++) {
             for (int j = 0; j < locationArray[i].length; j++){
@@ -138,7 +138,7 @@ public class MapView extends ViewBase {
             }
             
         }
-        System.out.println(thirdRow);
+        this.console.println(thirdRow);
         
         for (int i = 3; i > 2 && i < 4; i++) {
             for (int j = 0; j < locationArray[i].length; j++){
@@ -146,7 +146,7 @@ public class MapView extends ViewBase {
             }
             
         }
-        System.out.println(fourthRow);
+        this.console.println(fourthRow);
         
         for (int i = 4; i > 3 && i < 5; i++) {
             for (int j = 0; j < locationArray[i].length; j++){
@@ -154,7 +154,7 @@ public class MapView extends ViewBase {
             }
             
         }
-        System.out.println(fifthRow);
+        this.console.println(fifthRow);
         
         
         

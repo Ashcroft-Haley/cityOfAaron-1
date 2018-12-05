@@ -83,17 +83,16 @@ public class FeedSomePeopleView extends ViewBase {
         try{
             input = Integer.parseInt(inputs[0]);
         } catch(NumberFormatException nfe) {
-            System.out.println("The number entered is not valid.");
-            System.out.println(nfe.getMessage());
+            ErrorView.display(this.getClass().getName(), "The number entered is not valid." + nfe.getMessage());
         }
         
         if ((inputs[0] == null) || (inputs[0].equals(""))) {
-            System.out.println("But thou must...");
+            ErrorView.display(this.getClass().getName(), "But thou must...");
             return true;
         }        
         
         if(storedWheat < input || input < 0){
-            System.out.println("Apologies, but your grain check bounced.\n"
+            ErrorView.display(this.getClass().getName(), "Apologies, but your grain check bounced.\n"
                     + "Please enter a positive value equal to or less than "
                     + "your current grain in storage.");
             return true;
@@ -125,7 +124,7 @@ public class FeedSomePeopleView extends ViewBase {
         
         while(keepGoing == true){
             
-            System.out.println(message);
+            this.console.println(message);
             String[] inputs = getInputs();
             keepGoing = doAction(inputs);
         }
@@ -147,7 +146,7 @@ public class FeedSomePeopleView extends ViewBase {
         
         int wheatFinal = wheatStored - wheatFed;
         CityOfAaron.getCurrentGame().setWheatInStorage(wheatFinal); 
-        System.out.println("You have " + wheatFinal + " units of"
+        ErrorView.display(this.getClass().getName(), "You have " + wheatFinal + " units of"
                             + "wheat remaining in your stores.");
                     
         

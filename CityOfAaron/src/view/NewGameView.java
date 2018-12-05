@@ -62,7 +62,7 @@ public class NewGameView extends ViewBase {
     public boolean doAction(String[] inputs){
         
         if (inputs[0] == null || inputs[0].equals("")) {
-            System.out.println("No player name entered. Returning to the Main Menu...");
+            ErrorView.display(this.getClass().getName(), "No player name entered. Returning to the Main Menu...");
             return false;
         }
         
@@ -84,8 +84,8 @@ public class NewGameView extends ViewBase {
         
         CityOfAaron.setCurrentGame(game);
         
-        //System.out.println();
-        //System.out.println("Welcome to the game, " + CityOfAaron.getCurrentGame().getThePlayer().getName() + "!\n"
+        //this.console.println();
+        //this.console.println("Welcome to the game, " + CityOfAaron.getCurrentGame().getThePlayer().getName() + "!\n"
         //        + "Next week we will have a GameView that you will see. But for now,\n"
         //        + "we're just going to send you back to the Main Menu.\n");
         

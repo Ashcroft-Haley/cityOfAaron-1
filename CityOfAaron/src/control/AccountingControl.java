@@ -19,13 +19,30 @@ public class AccountingControl {
   
     
     
-    public static void ToolMax (){
+    public static int ToolMax (){
         InventoryItem[] tools = cityofaaron.CityOfAaron.getCurrentGame().getTheStorehouse().getTools();
         String tool = tools[0].getName();
         int highSoFar = tools[0].getQuantity();
         int n;
         n = tools.length - 1;
-        //System.out.println(n);
+        int counted;
+
+        for (int count = n; count>=0; count--){
+            counted = tools[count].getQuantity();
+            if (counted > highSoFar){
+                highSoFar = tools[count].getQuantity();
+                return highSoFar;
+            }
+        }
+        return highSoFar;
+    } 
+    
+    public static String ToolName (){
+        InventoryItem[] tools = cityofaaron.CityOfAaron.getCurrentGame().getTheStorehouse().getTools();
+        String tool = tools[0].getName();
+        int highSoFar = tools[0].getQuantity();
+        int n;
+        n = tools.length - 1;
         int counted;
 
         for (int count = n; count>=0; count--){
@@ -33,12 +50,12 @@ public class AccountingControl {
             if (counted > highSoFar){
                 highSoFar = tools[count].getQuantity();
                 tool = tools[count].getName();
+                return tool;
                 
             }
         }
+        return tool;
         
-        System.out.println("There are more " + tool + "s than any other tool.\n"
-                + "Right now there are " + highSoFar + " in storage.");
-    } 
+    }
 
 }

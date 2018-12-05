@@ -69,7 +69,7 @@ public class LoadGameView extends ViewBase {
 
 
     private boolean openFile(String fileName) {
-        System.out.println("Loading a file coming soon! Returning to the Main Menu");
+        this.console.println("Loading a file coming soon! Returning to the Main Menu");
         return true;
     }
 

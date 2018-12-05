@@ -5,8 +5,6 @@
  */
 package view;
 
-import java.util.Scanner;
-
 /**
  *
  * @author haleyashcroft
@@ -35,32 +33,6 @@ public class HelpMenuView extends ViewBase {
      * @param allowEmpty - determine whether the user can enter no value (just a return key)
      * @return 
      */
-    protected String getUserInput(String prompt, boolean allowEmpty){
-        
-        Scanner keyboard = new Scanner(System.in);
-        String input = "";
-        boolean inputReceived = false;
-        
-        while(inputReceived == false){
-            
-            System.out.println(prompt);
-            input = keyboard.nextLine();
-            
-            // Make sure we avoid a null-pointer error.
-            if (input == null){
-                input = "";
-            }
-            
-            // Trim any trailing whitespace, including the carriage return.
-            input = input.trim();
-            
-            if (input.equals("") == false || allowEmpty == true){
-                inputReceived = true;
-            }
-        }
-        
-        return input;
-    }
     
     
     /**
@@ -101,13 +73,13 @@ public class HelpMenuView extends ViewBase {
     public boolean doAction(String[] inputs){
         
         if (inputs[0] == null || inputs[0].equals("")) {
-            System.out.println("No menu item selected. Returning to the Main Menu...");
+            ErrorView.display(this.getClass().getName(), "No menu item selected. Returning to the Main Menu...");
             return false;
         }
         
         switch (inputs[0].trim().toUpperCase()){
             case "G":
-                System.out.println("You will assume the role of the leader over the city of Aaron,\n"
+                this.console.println("You will assume the role of the leader over the city of Aaron,\n"
                         + "and your job is to survive each year for ten years. You are to\n"
                         + "manage the villageswheat crops so that the village can be adaquately\n"
                         + "fed while dealing with rats and random crop yields. The city is\n"
@@ -118,13 +90,13 @@ public class HelpMenuView extends ViewBase {
                 getInputs();
                 break;
             case "W": 
-                System.out.println("The city of Aaron is a Book of Mormon city located somwhere on the\n"
+                this.console.println("The city of Aaron is a Book of Mormon city located somwhere on the\n"
                         + "American continent around 200 years before Christ's birth.\n"
                 );
                 getInputs();
                 break;
             case "M": 
-                System.out.println("The map of the city of Aaron is a grid of locations.\n"
+                this.console.println("The map of the city of Aaron is a grid of locations.\n"
                         + "To move to a new location, the game will prompt you for the row\n"
                         + "and column number, or the locations coordinates. You'll be able\n"
                         + "see where your current location is as well as relevant tips to win"
@@ -132,7 +104,7 @@ public class HelpMenuView extends ViewBase {
                 getInputs();
                 break;
             case "S": 
-                System.out.println("You need to access the Reports Menu. It's located in the\n"
+                this.console.println("You need to access the Reports Menu. It's located in the\n"
                         + "Game Menu, and you can choose to look at reports for animals, tools\n"
                         + "and provisions. There will be lists of each of these storehouse items."
                 );

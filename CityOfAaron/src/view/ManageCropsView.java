@@ -78,7 +78,7 @@ public class ManageCropsView extends ViewBase {
                 loadPayTithingView();
                 break;
             case "R":
-                System.out.println("You are now leaving the Manage Crops Menu...");
+                this.console.println("You are now leaving the Manage Crops Menu...");
                 return false;
         }
         

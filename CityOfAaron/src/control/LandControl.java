@@ -7,6 +7,7 @@ package control;
 
 import exceptions.GameControlException;
 import exceptions.LandControlException;
+import view.ErrorView;
 
 /**
  *
@@ -22,7 +23,7 @@ public class LandControl {
         try {
             priceOfLand = GameControl.getRandomNumber(low, high);
         } catch (GameControlException gce){
-            System.out.println(gce.getMessage());
+            ErrorView.display("LandControl", gce.getMessage());
         }
         return priceOfLand;
     }

@@ -76,7 +76,7 @@ public class NewLocationView extends ViewBase {
         // return false if you want this view to exit and return
         // to the view that called it.
         if ((inputs[0] == null && inputs[1] == null) || (inputs[0].equals("") && inputs[1].equals(""))) {
-            System.out.println("No coordinates entered. Returning to the Game Menu...");
+            ErrorView.display(this.getClass().getName(), "No coordinates entered. Returning to the Game Menu...");
             return false;
         }
         
@@ -85,15 +85,13 @@ public class NewLocationView extends ViewBase {
         try{
             rowInput = Integer.parseInt(inputs[0]);
         } catch (NumberFormatException nfe) {
-            System.out.println("Number entered was not a valid number.");
-            System.out.println(nfe.getMessage());
+            ErrorView.display(this.getClass().getName(), "Number entered was not a valid number. " + nfe.getMessage());
         }
         
         try{
             columnInput = Integer.parseInt(inputs[0]);
         } catch(NumberFormatException nfe) {
-            System.out.println("Number entered was not a valid number.");
-            System.out.println(nfe.getMessage());
+            ErrorView.display(this.getClass().getName(), "Number entered was not a valid number. " + nfe.getMessage());
         }
         moveToNewLocation(rowInput, columnInput);
         
@@ -119,11 +117,11 @@ public class NewLocationView extends ViewBase {
         CityOfAaron.getCurrentGame().getTheMap().setCurrentLocation(coordinates);
         
         Location[][] locationArray = cityofaaron.CityOfAaron.getCurrentGame().getTheMap().getLocations();
-        System.out.println(locationArray[rowInput][columnInput].getDescription() + "\n"
+        this.console.println(locationArray[rowInput][columnInput].getDescription() + "\n"
                 + locationArray[rowInput][columnInput].getGameTips() + "\n"
                 );
         
-//        System.out.println("You are now standing in one of the city's wheat fields.\n"
+//        this.console.println("You are now standing in one of the city's wheat fields.\n"
 //        + "There is nothing but wheat as far as the eye can see. We hope to have a\n"
 //        + "bountiful harvest this year. It takes 20 bushels of wheat to feed one person.");
         
@@ -134,16 +132,16 @@ public class NewLocationView extends ViewBase {
     
 
     
-    private static boolean getTheCreatedMap() {
+    private boolean getTheCreatedMap() {
         Location[][] locationArray = cityofaaron.CityOfAaron.getCurrentGame().getTheMap().getLocations();
         //locationArray[0][0].getName();
-        //System.out.println(locationArray[0][0].getName());
+        //this.console.println(locationArray[0][0].getName());
         String firstRow = "";
         String secondRow = "";
         String thirdRow = "";
         String fourthRow = "";
         String fifthRow = "";
-        System.out.println("----------------\n"
+        this.console.println("----------------\n"
                 + "Get ready to move!\n");
         
         for (int i = 0; i < 1; i++) {
@@ -152,7 +150,7 @@ public class NewLocationView extends ViewBase {
             }
             
         }
-        System.out.println(firstRow);
+        this.console.println(firstRow);
         
         for (int i = 0; i > 0 && i < 2; i++) {
             for (int j = 0; j < locationArray[i].length; j++){
@@ -160,7 +158,7 @@ public class NewLocationView extends ViewBase {
             }
             
         }
-        System.out.println(secondRow);
+        this.console.println(secondRow);
         
         for (int i = 0; i > 1 && i < 3; i++) {
             for (int j = 0; j < locationArray[i].length; j++){
@@ -168,7 +166,7 @@ public class NewLocationView extends ViewBase {
             }
             
         }
-        System.out.println(thirdRow);
+        this.console.println(thirdRow);
         
         for (int i = 0; i > 2 && i < 4; i++) {
             for (int j = 0; j < locationArray[i].length; j++){
@@ -176,7 +174,7 @@ public class NewLocationView extends ViewBase {
             }
             
         }
-        System.out.println(fourthRow);
+        this.console.println(fourthRow);
         
         for (int i = 0; i > 3 && i < 5; i++) {
             for (int j = 0; j < locationArray[i].length; j++){
@@ -184,7 +182,7 @@ public class NewLocationView extends ViewBase {
             }
             
         }
-        System.out.println(fifthRow);
+        this.console.println(fifthRow);
         
         
         

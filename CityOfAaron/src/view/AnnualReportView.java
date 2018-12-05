@@ -65,7 +65,7 @@ public class AnnualReportView extends ViewBase {
                 int peopleStarved = calcTheYear.getPeopleStarved();
                 int tithingAmount = calcTheYear.getTithingAmount();
                 
-                System.out.println("WELCOME TO LIVING THE YEAR!\n"
+                this.console.println("WELCOME TO LIVING THE YEAR!\n"
                 + " = Year Number\n"
                 + landPrice + " = Land Price\n"
                 + peopleStarved + " = People Who Starved\n"
@@ -80,7 +80,7 @@ public class AnnualReportView extends ViewBase {
                 return false;
                 
             case "N":
-                System.out.println("Going to Game Menu...");
+                this.console.println("Going to Game Menu...");
                 return false;
         }
         
@@ -101,7 +101,7 @@ public class AnnualReportView extends ViewBase {
             calcTheYear = GameControl.liveTheYear(currentGame, -10, 1000, 1000);
         return calcTheYear;
         } catch (GameControlException ie) {
-            System.out.println(ie.getMessage());
+            ErrorView.display("AnnualReportView", ie.getMessage());
             return null;
         }
     }

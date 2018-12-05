@@ -84,17 +84,16 @@ public class PayTithingView extends ViewBase {
         try{
             input = Integer.parseInt(inputs[0]);
         } catch(NumberFormatException nfe) {
-            System.out.println("The number enetered is not valid.");
-           System.out.println(nfe.getMessage());
+            ErrorView.display(this.getClass().getName(), "The number enetered is not valid. " + nfe.getMessage());
         }
         
         if ((inputs[0] == null) || (inputs[0].equals(""))) {
-            System.out.println("That's not a valid input, please try harder.\n");
+            ErrorView.display(this.getClass().getName(), "That's not a valid input, please try harder.\n");
             return true;
         }        
         
         if(input > 100 || input < 0){
-            System.out.println("Please enter a valid percentage "
+            ErrorView.display(this.getClass().getName(), "Please enter a valid percentage "
                     + "BETWEEN 0% and 100%.\n");
             return true;
         }
@@ -114,11 +113,11 @@ public class PayTithingView extends ViewBase {
         postGrowth = (preGrowth / percentage) * 100;
         
         if (percentage > 0){
-        System.out.println("You will give " + (preGrowth - postGrowth) + " in"
+        this.console.println("You will give " + (preGrowth - postGrowth) + " in"
                 + "offerings.");
         }
         else {
-            System.out.println("Your actions have consequences.");
+            this.console.println("Your actions have consequences.");
         }
        
         return true;
