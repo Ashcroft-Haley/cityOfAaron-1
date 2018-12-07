@@ -4,10 +4,12 @@
  * and open the template in the editor.
  */
 package view;
+import control.GameControl;
+import exceptions.GameControlException;
 
 /**
  *
- * @author haleyashcroft
+ * @author Stuehser
  */
 public class LoadGameView extends ViewBase {
          
@@ -19,7 +21,7 @@ public class LoadGameView extends ViewBase {
 
     @Override
    protected String getMessage() {
-        return "WELCOME TO: LOADING A SAVED GAME.\n";
+        return "Welcome to the grand world of GAME LOADING!\n";
     }
    
    @Override
@@ -53,13 +55,32 @@ public class LoadGameView extends ViewBase {
         // return false if you want this view to exit and return
         // to the view that called it.
         //acceptableActionHandler(inputs);
-      String fileName = inputs[0];
-      openFile(fileName);
+      String filePath = inputs[0];
+      //openFile(filePath);
+      try{ 
+          if (filePath == null || filePath.length() < 2){
+               throw new GameControlException("Invalid filepath");
 
+            }
+            else{
+          boolean check = GameControl.GetGame(filePath);
+          if (check){
+              View view = new GameMenuView();
+              view.displayView(); 
+              
+          }else{
+              return false;
+          }
+          }
+      }catch(GameControlException gce){
+          ErrorView.display("GameControl", gce.getMessage());
+      }
         
-        return true;
         
+        return false;
+    }
 
+    
     }
 
     
@@ -67,10 +88,11 @@ public class LoadGameView extends ViewBase {
     // method will call based on the user's input. We don't want to do a lot of 
     // complex game stuff in our doAction() method. It will get messy very quickly.
 
-
+/*
     private boolean openFile(String fileName) {
         this.console.println("Loading a file coming soon! Returning to the Main Menu");
         return true;
     }
 
 }
+*/

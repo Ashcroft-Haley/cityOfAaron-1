@@ -18,6 +18,11 @@ import model.Provision;
 import exceptions.WheatControlException;
 import exceptions.GameControlException;
 import view.ErrorView;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 
 /**
  *
@@ -180,4 +185,49 @@ public class GameControl {
         return items;
     }
     
+    public static void SaveGame(Game game, String filePath){
+        try{
+            FileOutputStream fileOut = new FileOutputStream(filePath);
+            ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
+            objectOut.writeObject(game);
+            objectOut.close();
+        }catch(Exception ex){
+            ErrorView.display("GameControl", ex.getMessage());
+           
+        }
+    }
+    
+    
+    public static boolean GetGame(String filePath){
+        try{
+            File checkFile = new File(filePath);
+                        
+            if(checkFile.exists()){
+            FileInputStream fileIn = new FileInputStream(filePath);
+            ObjectInputStream objectIn = new ObjectInputStream(fileIn);
+    
+            Game game = new Game();
+            game = (Game) objectIn.readObject();
+            cityofaaron.CityOfAaron.setCurrentGame(game);
+            Player thePlayer = new Player();
+            thePlayer = game.getThePlayer();
+        
+        
+            game.setThePlayer(thePlayer);
+            objectIn.close();
+            return true;
+            }
+        else{
+            System.out.println("No such file.");
+            
+     
+                
+            }
+            
+        }catch(Exception e){
+            ErrorView.display("GameControl", e.getMessage());
+            
+        }
+        return false;
+}
   }

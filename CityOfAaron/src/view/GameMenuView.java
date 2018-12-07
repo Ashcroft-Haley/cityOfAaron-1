@@ -123,9 +123,9 @@ public class GameMenuView extends ViewBase {
     }
     
     private boolean saveCurrentGame() {
-        this.console.println("SaveCurrentGame coming soon!");
-        //View view = new SaveGameView();
-        //view.displayView();
+    
+        View view = new SaveGameView();
+        view.displayView();
         return true;
     }
 }
