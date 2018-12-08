@@ -26,6 +26,7 @@ public class ReportsMenuView extends ViewBase {
                 + "M - View the tool you have the most of\n"
                 + "P - View the provisions in the storehouse\n"
                 + "Q - View Storehouse Quantity Totals\n"
+                + "L - View all the map location info\n"
                 + "AU - View the authors of this game\n"
                 + "B - Back to Game Menu\n";
     }
@@ -83,6 +84,9 @@ public class ReportsMenuView extends ViewBase {
             case "Q": 
                 loadListTotalView();
                 break;
+            case "L": 
+                printMapInfo();
+                break;
             case "B":
                 this.console.println("You are now leaving the Reports Menu...");
                 return false;
@@ -128,8 +132,14 @@ public class ReportsMenuView extends ViewBase {
         int highSoFar = AccountingControl.ToolMax();
         String tool = AccountingControl.ToolName();
         
-        System.out.println("There are more " + tool + "s than any other tool.\n"
+        this.console.println("There are more " + tool + "s than any other tool.\n"
                 + "Right now there are " + highSoFar + " in storage.");
+        return true;
+    }
+    
+    private boolean printMapInfo() {
+        View view = new SaveMapInfoView();
+        view.displayView();
         return true;
     }
     

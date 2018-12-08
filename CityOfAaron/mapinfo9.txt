@@ -1,0 +1,31 @@
+
+
+            Map Information Report           
+
+Name                Description              Symbol    
+----------          ----------               ----------
+Watchtower          Fill in a description...      W         
+Field               Fill in a description...      F         
+River               Fill in a description...      R         
+Field               Fill in a description...      F         
+Watchtower          Fill in a description...      W         
+Undeveloped Land    Fill in a description...      U         
+Temple              Fill in a description...      T         
+Granary/ Storehouse Fill in a description...      G         
+River               Fill in a description...      R         
+Undeveloped Land    Fill in a description...      U         
+Field               Fill in a description...      F         
+Ruler's Court       Fill in a description...      C         
+Village             Fill in a description...      V         
+Village             Fill in a description...      V         
+River               Fill in a description...      R         
+Undeveloped Land    Fill in a description...      U         
+Village             Fill in a description...      V         
+Village             Fill in a description...      V         
+Field               Fill in a description...      F         
+Field               Fill in a description...      F         
+Watchtower          Fill in a description...      W         
+Undeveloped Land    Fill in a description...      U         
+Field               Fill in a description...      F         
+Field               Fill in a description...      F         
+Watchtower          Fill in a description...      W         
