@@ -26,7 +26,7 @@ public class ReportsMenuView extends ViewBase {
                 + "M - View the tool you have the most of\n"
                 + "P - View the provisions in the storehouse\n"
                 + "Q - View Storehouse Quantity Totals\n"
-                + "L - View all the map location info\n"
+                + "R - Create map info report\n"
                 + "AU - View the authors of this game\n"
                 + "B - Back to Game Menu\n";
     }
@@ -84,7 +84,7 @@ public class ReportsMenuView extends ViewBase {
             case "Q": 
                 loadListTotalView();
                 break;
-            case "L": 
+            case "R": 
                 printMapInfo();
                 break;
             case "B":
