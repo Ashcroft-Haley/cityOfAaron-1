@@ -26,6 +26,7 @@ public class ReportsMenuView extends ViewBase {
                 + "M - View the tool you have the most of\n"
                 + "P - View the provisions in the storehouse\n"
                 + "Q - View Storehouse Quantity Totals\n"
+                + "I - Create inventory item report\n"
                 + "R - Create map info report\n"
                 + "AU - View the authors of this game\n"
                 + "B - Back to Game Menu\n";
@@ -83,6 +84,9 @@ public class ReportsMenuView extends ViewBase {
                 break;
             case "Q": 
                 loadListTotalView();
+                break;
+            case "I":
+                printInventoryItemInfo();
                 break;
             case "R": 
                 printMapInfo();
@@ -143,6 +147,11 @@ public class ReportsMenuView extends ViewBase {
         return true;
     }
     
+    private boolean printInventoryItemInfo() {
+    View view = new SaveStorehouseInfoView();
+    view.displayView();
+    return true;
+    }
 
     }
 
