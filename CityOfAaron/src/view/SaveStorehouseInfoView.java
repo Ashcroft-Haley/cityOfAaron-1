@@ -18,8 +18,7 @@ public class SaveStorehouseInfoView extends ViewBase{
 
     @Override
    protected String getMessage() {
-        return "Enter the file location you want to print the report to. \n"
-                + "To return, press enter without entering a file location.\n";
+        return "Enter the file location you want to print the report to. \n";
     }
    
    @Override
@@ -63,12 +62,13 @@ public class SaveStorehouseInfoView extends ViewBase{
         
         try {
             StorehouseControl.loadStorehouseInfo(filePath);
+            System.out.println("File successfully written!");
         } catch(StorehouseControlException sce) {
             ErrorView.display(this.getClass().getName(), 
                     "Error printing inventory items." + sce.getMessage());
             return false;
         }
         
-        return true;
+        return false;
         }
 }
