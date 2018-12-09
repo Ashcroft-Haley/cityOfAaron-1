@@ -79,7 +79,7 @@ public class StorehouseControl {
                 
             
             }
-            
+         out.close();
         } catch (IOException ioe1) {
             System.out.println("I/O Error: " + ioe1.getMessage());
         }
